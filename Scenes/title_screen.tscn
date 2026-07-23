@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dcco7eybm4inq"]
+
+[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://icon.svg" id="1_klylv"]
+[ext_resource type="Script" uid="uid://ouc05axb37iy" path="res://Scenes/title_screen.gd" id="1_p3fck"]
+
+[node name="TitleScreen" type="Node2D" unique_id=580795733]
+script = ExtResource("1_p3fck")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1604899063]
+offset_right = 1151.0
+offset_bottom = 654.0
+texture = ExtResource("1_klylv")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=254192699]
+clip_contents = false
+offset_left = 86.0
+offset_top = 54.0
+offset_right = 1067.0
+offset_bottom = 206.41936
+scale = Vector2(1, 1.24)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 108
+text = "CARNIVAL CHAOS
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=403313599]
+offset_left = 479.0
+offset_top = 214.00002
+offset_right = 2122.0
+offset_bottom = 1611.4286
+scale = Vector2(0.36855832, 0.27372903)
+theme_override_constants/separation = 75
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=848203729]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 300
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1170592561]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 300
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=2066075577]
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 300
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
