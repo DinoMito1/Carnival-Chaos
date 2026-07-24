@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c08mpxevaejqm"]
 
-[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://icon.svg" id="1_rol8n"]
+[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="1_rol8n"]
+[ext_resource type="Texture2D" uid="uid://c2npob4172ue5" path="res://Sprites/ticket_life.png" id="2_cn3xy"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
 
@@ -10,28 +11,33 @@ offset_bottom = 654.0
 texture = ExtResource("1_rol8n")
 
 [node name="TicketContainer" type="HBoxContainer" parent="." unique_id=2085537672]
-offset_left = 211.00002
-offset_top = 92.0
-offset_right = 867.0
-offset_bottom = 220.0
-scale = Vector2(1.1088092, 1.1928551)
+offset_left = 190.0
+offset_top = 73.999985
+offset_right = 1131.0
+offset_bottom = 344.37726
+scale = Vector2(0.83950603, 0.8728545)
 
 [node name="Ticket1" type="TextureRect" parent="TicketContainer" unique_id=499294817]
 layout_mode = 2
-texture = ExtResource("1_rol8n")
+texture = ExtResource("2_cn3xy")
+stretch_mode = 5
 
-[node name="Ticket2" type="TextureRect" parent="TicketContainer" unique_id=1312904834]
+[node name="Ticket2" type="TextureRect" parent="TicketContainer" unique_id=941693537]
 layout_mode = 2
-texture = ExtResource("1_rol8n")
+texture = ExtResource("2_cn3xy")
+stretch_mode = 5
 
-[node name="Ticket3" type="TextureRect" parent="TicketContainer" unique_id=878547611]
+[node name="Ticket3" type="TextureRect" parent="TicketContainer" unique_id=842942770]
 layout_mode = 2
-texture = ExtResource("1_rol8n")
+texture = ExtResource("2_cn3xy")
+stretch_mode = 5
 
-[node name="Ticket4" type="TextureRect" parent="TicketContainer" unique_id=591015124]
+[node name="Ticket4" type="TextureRect" parent="TicketContainer" unique_id=1498821750]
 layout_mode = 2
-texture = ExtResource("1_rol8n")
+texture = ExtResource("2_cn3xy")
+stretch_mode = 5
 
-[node name="Ticket5" type="TextureRect" parent="TicketContainer" unique_id=1185024174]
+[node name="Ticket5" type="TextureRect" parent="TicketContainer" unique_id=301755620]
 layout_mode = 2
-texture = ExtResource("1_rol8n")
+texture = ExtResource("2_cn3xy")
+stretch_mode = 5

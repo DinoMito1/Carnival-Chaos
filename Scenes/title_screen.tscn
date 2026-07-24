@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcco7eybm4inq"]
 
-[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://icon.svg" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="1_klylv"]
 [ext_resource type="Script" uid="uid://ouc05axb37iy" path="res://Scenes/title_screen.gd" id="1_p3fck"]
 
 [node name="TitleScreen" type="Node2D" unique_id=580795733]
