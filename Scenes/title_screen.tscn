@@ -81,6 +81,15 @@ text = "Quit"
 wait_time = 0.75
 autostart = true
 
+[node name="fade to black thing" type="ColorRect" parent="." unique_id=794601672]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -25.0
+offset_top = -58.0
+offset_right = 1196.0
+offset_bottom = 684.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

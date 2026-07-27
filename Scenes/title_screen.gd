@@ -26,7 +26,13 @@ func _on_timer_timeout() -> void:
 		$Background/Carnival3.visible = false
 
 func _on_start_pressed() -> void:
+	$"fade to black thing".visible = true
+	var tween = get_tree().create_tween() #fades to black
+	tween.tween_property($"fade to black thing", "modulate:a", 1, .35)
+	await get_tree().create_timer(.6).timeout
+	
 	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+	
 
 
 func _on_settings_pressed() -> void:
