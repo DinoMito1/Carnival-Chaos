@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ldllt4qjiwc1"]
+
+[ext_resource type="Script" uid="uid://blhbgrrbg3gij" path="res://Scenes/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://b5m1cbqs2qkay" path="res://Sprites/lil_guy_idle.png" id="2_gntrk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dewec"]
+radius = 7.3333335
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(14.666668, 15.666666)
+
+[node name="Player" type="CharacterBody2D" unique_id=1187757881]
+script = ExtResource("1_kyqiw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=881485096]
+scale = Vector2(4, 4)
+texture = ExtResource("2_gntrk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=582559082]
+position = Vector2(0, 7)
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_dewec")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1344881926]
+position = Vector2(0, 24.5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_kyqiw")
