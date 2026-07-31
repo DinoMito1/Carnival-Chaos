@@ -17,7 +17,7 @@ func _ready() -> void:
 	tween.tween_property($"fade to black thing", "modulate:a", 0, .35)
 	# above code fades out the black screen when switching to this scene
 	
-	await Timer(5.0)
+	await Timer(4.0)
 	
 	if Global.minigames_done < 3:
 		Global.minigames_done += 1

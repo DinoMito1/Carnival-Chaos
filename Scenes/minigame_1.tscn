@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://c8mfwj8xb5pgh"]
 
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="1_11mgy"]
+[ext_resource type="Script" uid="uid://cp8xm6flpms8t" path="res://Scenes/minigame_1.gd" id="1_ne1wf"]
 [ext_resource type="Texture2D" uid="uid://du3g16udltkep" path="res://Sprites/Grass_Tile.png" id="2_f6tb2"]
 [ext_resource type="Texture2D" uid="uid://buoj5ugrrcrv2" path="res://Sprites/lil_Hay.png" id="3_5txvl"]
 [ext_resource type="Texture2D" uid="uid://b4rgvdxdubes2" path="res://Sprites/cloud.png" id="3_f6tb2"]
 [ext_resource type="PackedScene" uid="uid://ldllt4qjiwc1" path="res://Scenes/Player.tscn" id="4_o6yob"]
 [ext_resource type="Texture2D" uid="uid://wgl12tek8vlr" path="res://Sprites/coin.png" id="6_0uv5o"]
+[ext_resource type="Script" uid="uid://ev5pui1c7keq" path="res://Scenes/coin.gd" id="7_qytqt"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="9_vj06g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6yob"]
 size = Vector2(1158, 63)
@@ -63,6 +66,7 @@ _data = {
 radius = 44.011364
 
 [node name="Node2D" type="Node2D" unique_id=1115545456]
+script = ExtResource("1_ne1wf")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1170013455]
 offset_right = 1151.0
@@ -231,6 +235,7 @@ z_index = 2
 position = Vector2(51, 517)
 
 [node name="Coin" type="Node2D" parent="." unique_id=177310266]
+script = ExtResource("7_qytqt")
 
 [node name="Coin" type="Sprite2D" parent="Coin" unique_id=577727864]
 z_index = 3
@@ -249,6 +254,7 @@ shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="Coin2" type="Node2D" parent="." unique_id=2061696398]
 position = Vector2(-482, 96)
+script = ExtResource("7_qytqt")
 
 [node name="Coin" type="Sprite2D" parent="Coin2" unique_id=1852310034]
 z_index = 3
@@ -267,6 +273,7 @@ shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="Coin3" type="Node2D" parent="." unique_id=1952144272]
 position = Vector2(274, 195)
+script = ExtResource("7_qytqt")
 
 [node name="Coin" type="Sprite2D" parent="Coin3" unique_id=262997095]
 z_index = 3
@@ -282,3 +289,10 @@ libraries/ = SubResource("AnimationLibrary_ne1wf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3/Area2D" unique_id=839303720]
 position = Vector2(781, 232)
 shape = SubResource("CircleShape2D_0uv5o")
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("9_vj06g")]
+position = Vector2(90, 12)
+
+[connection signal="coin_collected" from="Coin" to="." method="coin_collect"]
+[connection signal="coin_collected" from="Coin2" to="." method="coin_collect"]
+[connection signal="coin_collected" from="Coin3" to="." method="coin_collect"]
