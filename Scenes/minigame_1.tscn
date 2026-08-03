@@ -130,10 +130,10 @@ modulate = Color(0.6715141, 0.67151415, 0.6715141, 1)
 z_index = 1
 texture_repeat = 2
 layout_mode = 0
-offset_left = 194.0
-offset_top = 490.00003
-offset_right = 258.0
-offset_bottom = 522.0
+offset_left = 206.0
+offset_top = 492.0
+offset_right = 270.0
+offset_bottom = 524.0
 scale = Vector2(3, 3)
 texture = ExtResource("3_5txvl")
 stretch_mode = 2
@@ -202,15 +202,16 @@ position = Vector2(-306, -96)
 
 [node name="TextureRect" type="TextureRect" parent="Platform2/Platform3" unique_id=639910276]
 texture_repeat = 2
-offset_left = 511.0
-offset_top = -32.0
-offset_right = 575.0
+offset_left = 523.0
+offset_top = -30.0
+offset_right = 587.0
+offset_bottom = 2.0
 scale = Vector2(3, 3)
 texture = ExtResource("3_5txvl")
 stretch_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/Platform3" unique_id=462261356]
-position = Vector2(607, 11.5)
+position = Vector2(619, 13.5)
 shape = SubResource("RectangleShape2D_jmcek")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1972271680]
@@ -249,11 +250,11 @@ libraries/ = SubResource("AnimationLibrary_ne1wf")
 [node name="Area2D" type="Area2D" parent="Coin" unique_id=118569584]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D" unique_id=612531346]
-position = Vector2(781, 232)
+position = Vector2(780, 242)
 shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="Coin2" type="Node2D" parent="." unique_id=2061696398]
-position = Vector2(-482, 96)
+position = Vector2(-453, 96)
 script = ExtResource("7_qytqt")
 
 [node name="Coin" type="Sprite2D" parent="Coin2" unique_id=1852310034]
@@ -268,7 +269,7 @@ libraries/ = SubResource("AnimationLibrary_ne1wf")
 [node name="Area2D" type="Area2D" parent="Coin2" unique_id=2131600003]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2/Area2D" unique_id=1864786290]
-position = Vector2(781, 232)
+position = Vector2(766, 241)
 shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="Coin3" type="Node2D" parent="." unique_id=1952144272]
@@ -287,7 +288,7 @@ libraries/ = SubResource("AnimationLibrary_ne1wf")
 [node name="Area2D" type="Area2D" parent="Coin3" unique_id=2045702981]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3/Area2D" unique_id=839303720]
-position = Vector2(781, 232)
+position = Vector2(780, 242)
 shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("9_vj06g")]

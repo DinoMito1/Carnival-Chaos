@@ -20,4 +20,7 @@ func Timer(start_time: float):
 		time -= 0.1
 	
 	return
+
+func Stop():
+	time = 99
 	

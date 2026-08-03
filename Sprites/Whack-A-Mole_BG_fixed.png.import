@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cotf2p4s7kn36"
-path="res://.godot/imported/lil_guy_walk1.png-b62108929c7456613563c810e02fb3cf.ctex"
+uid="uid://qjec6uh54ebp"
+path="res://.godot/imported/Whack-A-Mole_BG_fixed.png-feffb8b79490409d805fc9d7128358ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/lil_guy_walk1.png"
-dest_files=["res://.godot/imported/lil_guy_walk1.png-b62108929c7456613563c810e02fb3cf.ctex"]
+source_file="res://Sprites/Whack-A-Mole_BG_fixed.png"
+dest_files=["res://.godot/imported/Whack-A-Mole_BG_fixed.png-feffb8b79490409d805fc9d7128358ba.ctex"]
 
 [params]
 

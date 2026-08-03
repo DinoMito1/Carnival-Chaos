@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dnqoo1kesquuj"]
+
+[ext_resource type="Script" uid="uid://cd3ky5uf6voa2" path="res://Scenes/minigame_2.gd" id="1_mmgun"]
+[ext_resource type="Texture2D" uid="uid://qjec6uh54ebp" path="res://Sprites/Whack-A-Mole_BG_fixed.png" id="1_rfxq2"]
+[ext_resource type="Texture2D" uid="uid://bxoybj7vqkrbb" path="res://Sprites/Mole_normal.png" id="2_mmgun"]
+[ext_resource type="Script" uid="uid://dgd3fxkoiok86" path="res://Scenes/button_1.gd" id="4_wu6l1"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_cqly6"]
+
+[node name="Node2D" type="Node2D" unique_id=1337333303]
+script = ExtResource("1_mmgun")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1204523437]
+offset_left = -34.0
+offset_right = 1166.0
+offset_bottom = 670.0
+texture = ExtResource("1_rfxq2")
+
+[node name="Button_1" type="TextureButton" parent="." unique_id=476653360]
+offset_left = 31.0
+offset_top = 331.0
+offset_right = 249.0
+offset_bottom = 632.0
+action_mode = 0
+texture_normal = ExtResource("2_mmgun")
+script = ExtResource("4_wu6l1")
+
+[node name="Button_2" type="TextureButton" parent="." unique_id=2129888019]
+offset_left = 875.0
+offset_top = 332.0
+offset_right = 1093.0
+offset_bottom = 633.0
+action_mode = 0
+texture_normal = ExtResource("2_mmgun")
+script = ExtResource("4_wu6l1")
+
+[node name="Button_3" type="TextureButton" parent="." unique_id=371181399]
+offset_left = 433.0
+offset_top = 215.0
+offset_right = 651.0
+offset_bottom = 516.0
+action_mode = 0
+texture_normal = ExtResource("2_mmgun")
+script = ExtResource("4_wu6l1")
+
+[node name="Button_4" type="TextureButton" parent="." unique_id=1683788811]
+offset_left = 167.0
+offset_top = -4.0
+offset_right = 385.0
+offset_bottom = 297.0
+action_mode = 0
+texture_normal = ExtResource("2_mmgun")
+script = ExtResource("4_wu6l1")
+
+[node name="Button_5" type="TextureButton" parent="." unique_id=184887176]
+offset_left = 729.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 307.0
+action_mode = 0
+texture_normal = ExtResource("2_mmgun")
+script = ExtResource("4_wu6l1")
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_cqly6")]
+position = Vector2(465, -11)
+
+[connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
+[connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]
+[connection signal="pressed" from="Button_3" to="Button_3" method="_on_pressed"]
+[connection signal="pressed" from="Button_4" to="Button_4" method="_on_pressed"]
+[connection signal="pressed" from="Button_5" to="Button_5" method="_on_pressed"]

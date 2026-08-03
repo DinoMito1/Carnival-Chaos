@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 		0:
 			TicketContainer.hide()
 	timer.text = str(time) # time until minigame starts
-	Level.text = "Level " + str(Global.minigames_done) # shows what number minigame you are on
+	Level.text = "Level " + str(Global.minigames_done + 1) # shows what number minigame you are on
 
 func Timer(start_time: float): # function for timer countdown
 	
