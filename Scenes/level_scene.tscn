@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dn4ue0p717um1" path="res://Scenes/level_scene.gd" id="1_c7xwe"]
 [ext_resource type="Texture2D" uid="uid://dl2ja5rmbiafc" path="res://Sprites/Carnival_Level_Background.png" id="1_cn3xy"]
 [ext_resource type="Texture2D" uid="uid://c2npob4172ue5" path="res://Sprites/ticket_life.png" id="2_cn3xy"]
+[ext_resource type="Texture2D" uid="uid://bjcxw7iqyywv1" path="res://Sprites/key_control.png" id="4_qnqh0"]
+[ext_resource type="Texture2D" uid="uid://diuvkirm7gdsp" path="res://Sprites/mouse_icon.png" id="5_lymix"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
 script = ExtResource("1_c7xwe")
@@ -84,3 +86,19 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/normal_font_size = 120
 text = "0.0"
+
+[node name="ArrowKeyIcon" type="TextureRect" parent="." unique_id=614767098]
+offset_left = 39.0
+offset_top = 317.0
+offset_right = 508.0
+offset_bottom = 588.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_qnqh0")
+
+[node name="MouseIcon" type="TextureRect" parent="." unique_id=122174537]
+offset_left = 770.0
+offset_top = 287.0
+offset_right = 1079.0
+offset_bottom = 620.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_lymix")

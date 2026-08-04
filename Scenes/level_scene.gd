@@ -12,12 +12,28 @@ var time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	$ArrowKeyIcon.scale = Vector2(0,0)
+	$MouseIcon.scale = Vector2(0,0)
+	
 	$"fade to black thing".show()
-	var tween = get_tree().create_tween() 
-	tween.tween_property($"fade to black thing", "modulate:a", 0, .35)
+	var tweenIn = get_tree().create_tween() 
+	
+	tweenIn.tween_property($"fade to black thing", "modulate:a", 0, .35)
 	# above code fades out the black screen when switching to this scene
 	
-	await Timer(4.0)
+	var controlTween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO) # shows the controls for the next minigame
+	if Global.minigames_done == 0:
+		controlTween.tween_property($ArrowKeyIcon, "scale", Vector2(1,1), 2)
+	elif Global.minigames_done == 1:
+		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
+	
+	await Timer(3.0)
+	
+	var tweenOut = get_tree().create_tween() 
+	tweenOut.tween_property($"fade to black thing", "modulate:a", 1, .35)
+	
+	await get_tree().create_timer(.5).timeout
 	
 	if Global.minigames_done < 3:
 		Global.minigames_done += 1
@@ -25,7 +41,6 @@ func _ready() -> void:
 		#changes scene to the minigame based on how many minigames were played
 	else:
 		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
