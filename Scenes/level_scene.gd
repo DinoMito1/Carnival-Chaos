@@ -7,6 +7,7 @@ extends Node2D
 @onready var Ticket5: TextureRect = $TicketContainer/Ticket5
 @onready var Level: RichTextLabel = $Level
 @onready var timer: RichTextLabel = $timer
+@onready var lostTicket = preload("res://Sprites/ticket_death.png")
 
 var time
 
@@ -22,7 +23,8 @@ func _ready() -> void:
 	tweenIn.tween_property($"fade to black thing", "modulate:a", 0, .35)
 	# above code fades out the black screen when switching to this scene
 	
-	var controlTween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO) # shows the controls for the next minigame
+	var controlTween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO) 
+	# shows controls for the next minigame
 	if Global.minigames_done == 0:
 		controlTween.tween_property($ArrowKeyIcon, "scale", Vector2(1,1), 2)
 	elif Global.minigames_done == 1:
@@ -32,6 +34,12 @@ func _ready() -> void:
 	
 	var tweenOut = get_tree().create_tween() 
 	tweenOut.tween_property($"fade to black thing", "modulate:a", 1, .35)
+	
+	#shows objective for next minigame
+	if Global.minigames_done == 0:
+		tweenOut.tween_property($CollectIcon, "modulate:a", 1, .25)
+	elif Global.minigames_done == 1:
+		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
 	
 	await get_tree().create_timer(.5).timeout
 	
@@ -44,23 +52,48 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	match Global.lives: # makes the tickets invisible as you lose lives
-		4:
-			Ticket5.hide()
-		3:
-			Ticket5.hide()
-			Ticket4.hide()
-		2:
-			Ticket5.hide()
-			Ticket4.hide()
-			Ticket3.hide()
-		1:
-			Ticket5.hide()
-			Ticket4.hide()
-			Ticket3.hide()
-			Ticket1.hide()
-		0:
-			TicketContainer.hide()
+	if Global.lost_prev == true:
+		var ticketFadeTween = get_tree().create_tween()
+		match Global.lives: # makes the tickets invisible as you lose lives
+			4:
+				Ticket5.texture = lostTicket
+				ticketFadeTween.tween_property($TicketContainer/Ticket5, "modulate:a", 0, 1)
+			3:
+				Ticket5.hide()
+				Ticket4.texture = lostTicket
+				ticketFadeTween.tween_property($TicketContainer/Ticket4, "modulate:a", 0, 1)
+			2:
+				Ticket5.hide()
+				Ticket4.hide()
+				Ticket3.texture = lostTicket
+				ticketFadeTween.tween_property($TicketContainer/Ticket3, "modulate:a", 0, 1)
+			1:
+				Ticket5.hide()
+				Ticket4.hide()
+				Ticket3.hide()
+				Ticket2.texture = lostTicket
+				ticketFadeTween.tween_property($TicketContainer/Ticket2, "modulate:a", 0, 1)
+			0:
+				TicketContainer.hide()
+	else:
+		match Global.lives: # makes the tickets invisible as you lose lives
+			4:
+				Ticket5.hide()
+			3:
+				Ticket5.hide()
+				Ticket4.hide()
+			2:
+				Ticket5.hide()
+				Ticket4.hide()
+				Ticket3.hide()
+			1:
+				Ticket5.hide()
+				Ticket4.hide()
+				Ticket3.hide()
+				Ticket2.hide()
+			0:
+				TicketContainer.hide()
+	
 	timer.text = str(time) # time until minigame starts
 	Level.text = "Level " + str(Global.minigames_done + 1) # shows what number minigame you are on
 

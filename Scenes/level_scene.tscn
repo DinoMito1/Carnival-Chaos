@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c2npob4172ue5" path="res://Sprites/ticket_life.png" id="2_cn3xy"]
 [ext_resource type="Texture2D" uid="uid://bjcxw7iqyywv1" path="res://Sprites/key_control.png" id="4_qnqh0"]
 [ext_resource type="Texture2D" uid="uid://diuvkirm7gdsp" path="res://Sprites/mouse_icon.png" id="5_lymix"]
+[ext_resource type="Texture2D" uid="uid://cw0whj0ut4x3x" path="res://Sprites/Collect Icon.png" id="6_lymix"]
+[ext_resource type="Texture2D" uid="uid://c07000lqqa3le" path="res://Sprites/Hit_icon.png" id="7_b7jio"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
 script = ExtResource("1_c7xwe")
@@ -102,3 +104,22 @@ offset_right = 1079.0
 offset_bottom = 620.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("5_lymix")
+
+[node name="CollectIcon" type="TextureRect" parent="." unique_id=892657937]
+modulate = Color(1, 1, 1, 0)
+z_index = 6
+offset_left = 198.0
+offset_top = 140.0
+offset_right = 1806.0
+offset_bottom = 398.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_lymix")
+
+[node name="HitIcon" type="TextureRect" parent="." unique_id=813386007]
+modulate = Color(1, 1, 1, 0)
+z_index = 6
+offset_left = 207.0
+offset_top = 93.0
+offset_right = 967.0
+offset_bottom = 279.0
+texture = ExtResource("7_b7jio")

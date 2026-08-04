@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bxoybj7vqkrbb" path="res://Sprites/Mole_normal.png" id="2_mmgun"]
 [ext_resource type="Script" uid="uid://dgd3fxkoiok86" path="res://Scenes/button_1.gd" id="4_wu6l1"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_cqly6"]
+[ext_resource type="Texture2D" uid="uid://c07000lqqa3le" path="res://Sprites/Hit_icon.png" id="6_mmgun"]
 
 [node name="Node2D" type="Node2D" unique_id=1337333303]
 script = ExtResource("1_mmgun")
@@ -64,6 +65,15 @@ script = ExtResource("4_wu6l1")
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_cqly6")]
 z_index = -1
 position = Vector2(465, -11)
+
+[node name="HitIcon" type="TextureRect" parent="." unique_id=376316116]
+z_index = 6
+offset_left = 207.0
+offset_top = 93.0
+offset_right = 967.0
+offset_bottom = 279.0
+mouse_filter = 2
+texture = ExtResource("6_mmgun")
 
 [connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
 [connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]

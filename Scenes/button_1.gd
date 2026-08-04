@@ -13,8 +13,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	$".".texture_normal = bonked
-	#await get_tree().create_timer(0.25).timeout
-	parent.buttons_pressed += 1
-	await get_tree().create_timer(0.5).timeout
-	hide()
+	if $".".texture_normal == idle:
+		$".".texture_normal = bonked
+		parent.buttons_pressed += 1
+		await get_tree().create_timer(0.5).timeout
+		hide()
