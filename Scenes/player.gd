@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 350.0
+const SPEED = 370.0
 const JUMP_VELOCITY = -500.0
 
 var idle = preload("res://Sprites/lil_guy_idle.png")

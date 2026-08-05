@@ -19,9 +19,9 @@ func _process(delta: float) -> void:
 	if buttons_pressed == 5:
 		
 		Global.lost_prev = false
-		if Global.minigames_done > 3:
+		if Global.minigames_done ==2:
 			themed_timer.Stop()
-			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
+			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 			
