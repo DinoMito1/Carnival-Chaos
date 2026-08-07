@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://ev5pui1c7keq" path="res://Scenes/coin.gd" id="7_qytqt"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="9_vj06g"]
 [ext_resource type="Texture2D" uid="uid://cw0whj0ut4x3x" path="res://Sprites/Collect Icon.png" id="10_qytqt"]
+[ext_resource type="AudioStream" uid="uid://83xq6hypkg2r" path="res://audio/idk_selectsound.mp3" id="11_vj06g"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="12_o14ck"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6yob"]
 size = Vector2(1158, 63)
@@ -307,6 +309,15 @@ offset_right = 1806.0
 offset_bottom = 398.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_qytqt")
+
+[node name="coinCollectSound" type="AudioStreamPlayer2D" parent="." unique_id=1047789482]
+stream = ExtResource("11_vj06g")
+volume_db = 9.0
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1347449859]
+stream = ExtResource("12_o14ck")
+volume_db = -5.0
+parameters/looping = true
 
 [connection signal="coin_collected" from="Coin" to="." method="coin_collect"]
 [connection signal="coin_collected" from="Coin2" to="." method="coin_collect"]

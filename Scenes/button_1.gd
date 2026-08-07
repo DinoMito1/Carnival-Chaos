@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	if $".".texture_normal == idle:
+		$"../moleHitSound".pitch_scale = randf_range(0.85, 1.2)
+		$"../moleHitSound".play()
 		$".".texture_normal = bonked
 		parent.buttons_pressed += 1
 		await get_tree().create_timer(0.5).timeout

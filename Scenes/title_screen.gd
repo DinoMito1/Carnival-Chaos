@@ -32,6 +32,7 @@ func _on_timer_timeout() -> void:
 		$Background/Carnival3.hide()
 
 func _on_start_pressed() -> void:
+	$SelectSound.play()
 	# dont forget to set the fading thing to not visible when not working on scene
 	$"fade to black thing".show()
 	var tween = get_tree().create_tween() #fades to black
@@ -42,6 +43,7 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 
 func _on_settings_pressed() -> void:
+	$SelectSound.play()
 	get_tree().change_scene_to_file("res://Scenes/settings_scene.tscn")
 
 

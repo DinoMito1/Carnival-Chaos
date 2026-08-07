@@ -15,6 +15,7 @@ func _ready() -> void:
 		$BestTimeText.text = str(Global.time)
 	else:
 		$BestTimeText.text = str(Global.best_time)
+	$AudioStreamPlayer2D.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

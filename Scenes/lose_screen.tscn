@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbllrptwp0b7d" path="res://Sprites/lose_text.png" id="3_7hir2"]
 [ext_resource type="Texture2D" uid="uid://c32aocd04e1so" path="res://Sprites/CC_Lose_Guy3.png" id="3_8gtgy"]
 [ext_resource type="Texture2D" uid="uid://bxk42pmmpm63u" path="res://Sprites/CC_Lose_Guy4.png" id="4_pmgax"]
+[ext_resource type="AudioStream" uid="uid://csnrodanlh6eb" path="res://audio/sad_trumpet.mp3" id="8_7r1e1"]
 
 [sub_resource type="Animation" id="Animation_01jlt"]
 length = 0.001
@@ -132,6 +133,11 @@ flat = true
 [node name="LoseText" type="Sprite2D" parent="." unique_id=2059059162]
 position = Vector2(548, 136)
 texture = ExtResource("3_7hir2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1900418424]
+stream = ExtResource("8_7r1e1")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
 [connection signal="mouse_entered" from="RetryButton" to="." method="_on_retry_button_mouse_entered"]

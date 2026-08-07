@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ldllt4qjiwc1"]
 
 [ext_resource type="Script" uid="uid://blhbgrrbg3gij" path="res://Scenes/player.gd" id="1_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://bp5uha026y786" path="res://audio/jump_sfx.mp3" id="2_kyqiw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rpqav"]
 load_path = "res://.godot/imported/lil_guy_idle.png-7bd88fb2fc78599b35ff1cb10d77666d.ctex"
@@ -40,3 +41,8 @@ shape = SubResource("CapsuleShape2D_dewec")
 position = Vector2(0, 24.5)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_kyqiw")
+
+[node name="jumpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1061659769]
+stream = ExtResource("2_kyqiw")
+volume_db = 3.5
+pitch_scale = 1.2

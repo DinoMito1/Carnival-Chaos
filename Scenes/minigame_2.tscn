@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dgd3fxkoiok86" path="res://Scenes/button_1.gd" id="4_wu6l1"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_cqly6"]
 [ext_resource type="Texture2D" uid="uid://c07000lqqa3le" path="res://Sprites/Hit_icon.png" id="6_mmgun"]
+[ext_resource type="AudioStream" uid="uid://c8be1xxorgcsj" path="res://audio/mole_hurt_sfx.mp3" id="7_h684j"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="8_wu6l1"]
 
 [node name="Node2D" type="Node2D" unique_id=1337333303]
 script = ExtResource("1_mmgun")
@@ -74,6 +76,16 @@ offset_right = 967.0
 offset_bottom = 279.0
 mouse_filter = 2
 texture = ExtResource("6_mmgun")
+
+[node name="moleHitSound" type="AudioStreamPlayer2D" parent="." unique_id=1910531198]
+stream = ExtResource("7_h684j")
+volume_db = 5.0
+pitch_scale = 0.87
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1244206696]
+stream = ExtResource("8_wu6l1")
+volume_db = -5.0
+parameters/looping = true
 
 [connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]
 [connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]

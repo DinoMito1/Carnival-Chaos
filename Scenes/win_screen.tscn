@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d12srnqy5fdjo" path="res://Scenes/win_screen.gd" id="1_awi1s"]
 [ext_resource type="Texture2D" uid="uid://b8xvbaawunpqh" path="res://Sprites/CC_win_screen.png" id="1_l5sol"]
 [ext_resource type="Texture2D" uid="uid://bey3865v5x188" path="res://Sprites/retry_button.png" id="2_a00f1"]
+[ext_resource type="AudioStream" uid="uid://bngd148y24yfr" path="res://audio/yipee_win.mp3" id="4_bwc64"]
 
 [sub_resource type="FontVariation" id="FontVariation_l5sol"]
 
@@ -62,6 +63,12 @@ offset_top = -14.0
 offset_right = 1189.0
 offset_bottom = 665.0
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1011047568]
+position = Vector2(575, 333)
+stream = ExtResource("4_bwc64")
+volume_db = 7.0
+pitch_scale = 1.2
 
 [connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
 [connection signal="mouse_entered" from="RetryButton" to="." method="_on_retry_button_mouse_entered"]

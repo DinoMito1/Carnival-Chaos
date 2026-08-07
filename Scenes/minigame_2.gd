@@ -10,6 +10,8 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($HitIcon, "modulate:a", 0, 2)
 	
+	$TimeTickingSound.play()
+	
 	await themed_timer.Timer(6.0)
 	timer_end = true
 
@@ -26,6 +28,7 @@ func _process(delta: float) -> void:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 			
 	if timer_end:
+		$TimeTickingSound.stop()
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1

@@ -15,4 +15,5 @@ func _process(delta: float) -> void:
 	if player_area.overlaps_area(self_area):
 		if self.visible:
 			emit_signal("coin_collected")
+			$"../coinCollectSound".play()
 			self.hide()

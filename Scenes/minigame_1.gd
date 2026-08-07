@@ -5,7 +5,7 @@ var timer_end = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	$TimeTickingSound.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property($CollectIcon, "modulate:a", 0, 2)
 	
@@ -18,6 +18,7 @@ func _ready() -> void:
 	timer_end = true # says timer has ended after 7 seconds
 	
 	# when timer runs out
+	$TimeTickingSound.stop()
 	Global.lost_prev = true
 	Global.minigames_done -= 1
 	Global.lives -= 1
