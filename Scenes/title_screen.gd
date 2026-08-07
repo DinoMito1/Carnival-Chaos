@@ -8,6 +8,12 @@ func _ready() -> void:
 	$Background/Carnival3.hide()
 	# timer for animation will auto start
 	
+	$"fade to black thing".show()
+	var fadeTween = get_tree().create_tween() 
+	fadeTween.tween_property($"fade to black thing", "modulate:a", 0, .5)
+	await get_tree().create_timer(.5).timeout
+	$"fade to black thing".hide()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -32,9 +38,8 @@ func _on_start_pressed() -> void:
 	tween.tween_property($"fade to black thing", "modulate:a", 1, .35)
 	await get_tree().create_timer(.45).timeout
 	
+	Global.timer.start()
 	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
-	
-
 
 func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/settings_scene.tscn")

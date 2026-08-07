@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cd5jlbdu6r3fj"]
 
+[ext_resource type="Script" uid="uid://d12srnqy5fdjo" path="res://Scenes/win_screen.gd" id="1_awi1s"]
 [ext_resource type="Texture2D" uid="uid://b8xvbaawunpqh" path="res://Sprites/CC_win_screen.png" id="1_l5sol"]
 [ext_resource type="Texture2D" uid="uid://bey3865v5x188" path="res://Sprites/retry_button.png" id="2_a00f1"]
 
 [sub_resource type="FontVariation" id="FontVariation_l5sol"]
 
 [node name="Node2D" type="Node2D" unique_id=700499446]
+script = ExtResource("1_awi1s")
 
 [node name="CcWinScreen" type="TextureRect" parent="." unique_id=883640781]
 offset_right = 1152.0
@@ -13,9 +15,9 @@ offset_bottom = 648.0
 texture = ExtResource("1_l5sol")
 
 [node name="YourTimeText" type="RichTextLabel" parent="." unique_id=683458283]
-offset_left = 1032.0
+offset_left = 1023.0
 offset_top = 412.0
-offset_right = 1155.0416
+offset_right = 1146.0416
 offset_bottom = 457.74246
 rotation = -0.022725318
 theme_override_colors/default_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
@@ -24,12 +26,13 @@ theme_override_font_sizes/normal_font_size = 32
 text = "678.90"
 scroll_active = false
 autowrap_trim_flags = 0
+horizontal_alignment = 1
 
 [node name="BestTimeText" type="RichTextLabel" parent="." unique_id=276789648]
-offset_left = 1021.99994
-offset_top = 519.0
-offset_right = 1131.0
-offset_bottom = 576.0
+offset_left = 1020.99994
+offset_top = 520.99994
+offset_right = 1130.0
+offset_bottom = 577.99994
 rotation = 0.091832206
 theme_override_colors/default_color = Color(0.6745098, 0.19607843, 0.19607843, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_l5sol")
@@ -37,6 +40,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "123.45"
 scroll_active = false
 autowrap_trim_flags = 0
+horizontal_alignment = 1
 
 [node name="RetryButton" type="Button" parent="." unique_id=1145269592]
 modulate = Color(1, 1, 0.5019608, 1)
@@ -48,3 +52,17 @@ rotation = -0.074071325
 scale = Vector2(0.5, 0.5)
 icon = ExtResource("2_a00f1")
 flat = true
+
+[node name="Fade to black thing" type="ColorRect" parent="." unique_id=1692325479]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 1189.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
+[connection signal="mouse_entered" from="RetryButton" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="mouse_exited" from="RetryButton" to="." method="_on_retry_button_mouse_exited"]

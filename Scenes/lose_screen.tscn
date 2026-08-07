@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c65w0sc8xcux0"]
 
+[ext_resource type="Script" uid="uid://ck27ss8ko4t2v" path="res://Scenes/lose_screen.gd" id="1_8gtgy"]
 [ext_resource type="Texture2D" uid="uid://pm1cdl6ni0o1" path="res://Sprites/CC_Lose_Guy1.png" id="1_h3ym8"]
 [ext_resource type="Texture2D" uid="uid://bey3865v5x188" path="res://Sprites/retry_button.png" id="2_7hir2"]
 [ext_resource type="Texture2D" uid="uid://vjdysqkpytlu" path="res://Sprites/CC_Lose_Guy2.png" id="2_14evm"]
@@ -21,9 +22,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_h3ym8")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(232, 439)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gsrht"]
 resource_name = "loss_crying"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,6 +62,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_h3ym8"), ExtResource("2_14evm"), ExtResource("3_8gtgy"), ExtResource("4_pmgax"), ExtResource("1_h3ym8"), ExtResource("2_14evm"), ExtResource("3_8gtgy"), ExtResource("4_pmgax"), ExtResource("1_h3ym8")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(232, 439), Vector2(234, 450), Vector2(232, 439)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1.000001, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.04, 0.977), Vector2(1.035, 0.95), Vector2(0.982, 1.05), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1fbfm"]
 _data = {
@@ -44,6 +94,7 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=1108126241]
+script = ExtResource("1_8gtgy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=14598843]
 offset_left = -50.0
@@ -52,6 +103,16 @@ offset_right = 1189.0
 offset_bottom = 665.0
 color = Color(0.06666667, 0.15294118, 0.30588236, 1)
 
+[node name="Fade to black thing" type="ColorRect" parent="." unique_id=1000745993]
+visible = false
+modulate = Color(1, 1, 1, 0)
+top_level = true
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 1189.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+
 [node name="CcLoseGuy1" type="Sprite2D" parent="." unique_id=1996305655]
 position = Vector2(232, 439)
 texture = ExtResource("1_h3ym8")
@@ -59,10 +120,19 @@ texture = ExtResource("1_h3ym8")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CcLoseGuy1" unique_id=1025906563]
 libraries/ = SubResource("AnimationLibrary_1fbfm")
 
-[node name="RetryButton" type="Sprite2D" parent="." unique_id=1485583942]
-position = Vector2(802, 369)
-texture = ExtResource("2_7hir2")
+[node name="RetryButton" type="Button" parent="." unique_id=611208826]
+offset_left = 508.0
+offset_top = 332.0
+offset_right = 1082.0
+offset_bottom = 524.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("2_7hir2")
+flat = true
 
 [node name="LoseText" type="Sprite2D" parent="." unique_id=2059059162]
 position = Vector2(548, 136)
 texture = ExtResource("3_7hir2")
+
+[connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
+[connection signal="mouse_entered" from="RetryButton" to="." method="_on_retry_button_mouse_entered"]
+[connection signal="mouse_exited" from="RetryButton" to="." method="_on_retry_button_mouse_exited"]

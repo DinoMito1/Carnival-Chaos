@@ -17,7 +17,7 @@ config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-Global="*uid://cbfgpbwofbhdb"
+Global="*uid://dd6pajeg8drm4"
 
 [display]
 

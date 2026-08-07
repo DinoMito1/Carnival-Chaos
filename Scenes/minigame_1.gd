@@ -21,7 +21,10 @@ func _ready() -> void:
 	Global.lost_prev = true
 	Global.minigames_done -= 1
 	Global.lives -= 1
-	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+	if Global.lives > 0:
+		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

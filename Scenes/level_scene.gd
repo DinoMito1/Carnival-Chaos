@@ -13,9 +13,7 @@ var time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-
-	
+		
 	$ArrowKeyIcon.scale = Vector2(0,0)
 	$MouseIcon.scale = Vector2(0,0)
 	
@@ -31,7 +29,6 @@ func _ready() -> void:
 		controlTween.tween_property($ArrowKeyIcon, "scale", Vector2(1,1), 2)
 	elif Global.minigames_done == 1:
 		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
-	
 
 		
 	await Timer(3.0)

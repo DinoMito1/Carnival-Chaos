@@ -196,7 +196,7 @@ texture = ExtResource("3_5txvl")
 stretch_mode = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1179762909]
-position = Vector2(607, 11.5)
+position = Vector2(607, 10)
 shape = SubResource("RectangleShape2D_ojqsy")
 
 [node name="Platform3" type="StaticBody2D" parent="Platform2" unique_id=1614386941]
