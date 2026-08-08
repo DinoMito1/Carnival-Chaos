@@ -79,12 +79,11 @@ texture = ExtResource("6_mmgun")
 
 [node name="moleHitSound" type="AudioStreamPlayer2D" parent="." unique_id=1910531198]
 stream = ExtResource("7_h684j")
-volume_db = 5.0
+volume_db = 10.0
 pitch_scale = 0.87
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1244206696]
 stream = ExtResource("8_wu6l1")
-volume_db = -5.0
 parameters/looping = true
 
 [connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]

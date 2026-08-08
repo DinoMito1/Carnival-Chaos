@@ -275,7 +275,7 @@ speed_scale = 0.7
 [node name="Area2D" type="Area2D" parent="Coin2" unique_id=2131600003]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2/Area2D" unique_id=1864786290]
-position = Vector2(766, 241)
+position = Vector2(781, 244)
 shape = SubResource("CircleShape2D_0uv5o")
 
 [node name="Coin3" type="Node2D" parent="." unique_id=1952144272]
@@ -312,11 +312,10 @@ texture = ExtResource("10_qytqt")
 
 [node name="coinCollectSound" type="AudioStreamPlayer2D" parent="." unique_id=1047789482]
 stream = ExtResource("11_vj06g")
-volume_db = 9.0
+volume_db = 18.0
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1347449859]
 stream = ExtResource("12_o14ck")
-volume_db = -5.0
 parameters/looping = true
 
 [connection signal="coin_collected" from="Coin" to="." method="coin_collect"]

@@ -30,6 +30,8 @@ func _ready() -> void:
 		controlTween.tween_property($ArrowKeyIcon, "scale", Vector2(1,1), 2)
 	elif Global.minigames_done == 1:
 		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
+	elif Global.minigames_done == 2:
+		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
 
 		
 	await Timer(3.0)
@@ -42,6 +44,8 @@ func _ready() -> void:
 		tweenOut.tween_property($CollectIcon, "modulate:a", 1, .25)
 	elif Global.minigames_done == 1:
 		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
+	elif Global.minigames_done == 2:
+		tweenOut.tween_property($MashIcon, "modulate:a", 1, .25)
 	
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")

@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	if coins_collected == 3:
 		Global.lost_prev = false
 		themed_timer.Stop()
-		if Global.minigames_done > 3:
+		if Global.minigames_done == 3:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")

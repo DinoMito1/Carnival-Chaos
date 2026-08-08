@@ -22,5 +22,5 @@ func Timer(start_time: float):
 	return
 
 func Stop():
-	time = 99
+	time = 999
 	

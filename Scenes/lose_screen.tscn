@@ -136,7 +136,7 @@ texture = ExtResource("3_7hir2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1900418424]
 stream = ExtResource("8_7r1e1")
-volume_db = 10.0
+volume_db = 16.0
 autoplay = true
 
 [connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]

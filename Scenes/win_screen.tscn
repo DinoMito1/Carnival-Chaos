@@ -67,7 +67,7 @@ color = Color(0, 0, 0, 1)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1011047568]
 position = Vector2(575, 333)
 stream = ExtResource("4_bwc64")
-volume_db = 7.0
+volume_db = 16.0
 pitch_scale = 1.2
 
 [connection signal="button_down" from="RetryButton" to="." method="_on_retry_button_button_down"]
