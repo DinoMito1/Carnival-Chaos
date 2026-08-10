@@ -44,5 +44,5 @@ shape = SubResource("RectangleShape2D_kyqiw")
 
 [node name="jumpSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1061659769]
 stream = ExtResource("2_kyqiw")
-volume_db = 7.5
+volume_db = 6.5
 pitch_scale = 1.2

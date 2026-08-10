@@ -311,8 +311,9 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_qytqt")
 
 [node name="coinCollectSound" type="AudioStreamPlayer2D" parent="." unique_id=1047789482]
+position = Vector2(1, 0)
 stream = ExtResource("11_vj06g")
-volume_db = 18.0
+volume_db = 10.0
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1347449859]
 stream = ExtResource("12_o14ck")

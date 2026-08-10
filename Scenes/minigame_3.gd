@@ -38,7 +38,6 @@ func _process(delta: float) -> void:
 
 func _on_target_button_down() -> void:
 	if targetTween:
-		print('KILLED')
 		targetTween.kill()
 	targetTween = get_tree().create_tween()
 	targetTween.tween_property($Target, "scale", Vector2(1.2, 1.2), 1)

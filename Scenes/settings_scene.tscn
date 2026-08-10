@@ -1,15 +1,32 @@
 [gd_scene format=3 uid="uid://ba0f14xr6h5r2"]
 
 [ext_resource type="Script" uid="uid://crnl2lmo2cwhj" path="res://Scenes/settings_scene.gd" id="1_cmf5w"]
+[ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="2_amiku"]
+[ext_resource type="Texture2D" uid="uid://yaotdyvyq5u1" path="res://Sprites/refresh_button.png" id="3_2kfxj"]
+[ext_resource type="AudioStream" uid="uid://bspuhukv60fg3" path="res://audio/bep.mp3" id="4_2gedn"]
 
 [node name="Settings_scene" type="Node2D" unique_id=185360734]
 script = ExtResource("1_cmf5w")
 
+[node name="Background" type="TextureRect" parent="." unique_id=1439243325]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1159.0
+offset_bottom = 649.0
+texture = ExtResource("2_amiku")
+
+[node name="SettingBox" type="ColorRect" parent="." unique_id=1519281393]
+offset_left = 25.0
+offset_top = 27.0
+offset_right = 1133.0
+offset_bottom = 631.0
+color = Color(0.21568628, 0.24705882, 0.30980393, 0.7411765)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=762825787]
-offset_left = 711.0
-offset_top = 525.00006
-offset_right = 2354.0
-offset_bottom = 1926.0
+offset_left = 720.0
+offset_top = 524.00006
+offset_right = 2363.0
+offset_bottom = 1925.0
 scale = Vector2(0.24190064, 0.21579145)
 theme_override_constants/separation = 75
 
@@ -20,4 +37,50 @@ theme_override_font_sizes/font_size = 300
 text = "Back
 "
 
+[node name="VolumeBar" type="HSlider" parent="." unique_id=902778954]
+custom_minimum_size = Vector2(3, 5)
+offset_left = 380.0
+offset_top = 107.0
+offset_right = 611.6
+offset_bottom = 132.2
+scale = Vector2(2.5, 2.5)
+value = 25.0
+rounded = true
+scrollable = false
+
+[node name="VolumeText" type="RichTextLabel" parent="." unique_id=887582462]
+offset_left = 52.0
+offset_top = 97.0
+offset_right = 252.0
+offset_bottom = 172.0
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 48
+text = " Volume"
+
+[node name="VolumeReset" type="Button" parent="." unique_id=846593933]
+modulate = Color(1.2589494, 1.2589494, 1.2589494, 1)
+offset_left = 262.0
+offset_top = 78.0
+offset_right = 370.0
+offset_bottom = 186.0
+scale = Vector2(0.9, 0.9)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("3_2kfxj")
+flat = true
+
+[node name="VolumeValue" type="RichTextLabel" parent="." unique_id=1564305038]
+offset_left = 968.0
+offset_top = 99.0
+offset_right = 1124.0
+offset_bottom = 174.0
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 48
+text = " 25%"
+
+[node name="volumeAdjustSound" type="AudioStreamPlayer2D" parent="." unique_id=857036191]
+stream = ExtResource("4_2gedn")
+volume_db = 7.0
+
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="VolumeBar" to="." method="_on_volume_bar_value_changed"]
+[connection signal="button_down" from="VolumeReset" to="." method="_on_volume_reset_button_down"]
