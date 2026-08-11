@@ -32,4 +32,7 @@ func _process(delta: float) -> void:
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
-		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+		if Global.lives > 0:
+			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")

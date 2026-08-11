@@ -6,10 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://craypfhswlmy3" path="res://Sprites/dunkTank1.png" id="2_rpf30"]
 [ext_resource type="Texture2D" uid="uid://bgednf2l706yv" path="res://Sprites/dunkTank2.png" id="3_4cfv6"]
 [ext_resource type="Texture2D" uid="uid://biepaqm5qfqm0" path="res://Sprites/dunkTank3.png" id="4_mu65p"]
+[ext_resource type="Texture2D" uid="uid://cppm5wueanjkr" path="res://Sprites/dunkTankSplash1.png" id="5_7u6rh"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_lr4ld"]
+[ext_resource type="Texture2D" uid="uid://b6uh1ngfl1tq6" path="res://Sprites/dunkTankSplash2.png" id="6_75k32"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="6_rpf30"]
+[ext_resource type="Texture2D" uid="uid://db76qm5mkvuqr" path="res://Sprites/dunkTankSplash3.png" id="7_f07lr"]
 [ext_resource type="AudioStream" uid="uid://c8be1xxorgcsj" path="res://audio/mole_hurt_sfx.mp3" id="7_rpf30"]
-[ext_resource type="AudioStream" uid="uid://cwrtsll8ei1us" path="res://audio/splashTemp.mp3" id="10_mu65p"]
+[ext_resource type="Texture2D" uid="uid://dqo5x5jt1cpwp" path="res://Sprites/dunkTankSplash4.png" id="8_kvuqf"]
+[ext_resource type="AudioStream" uid="uid://02puk08leini" path="res://audio/sploosh Featuring my brother.mp3" id="10_mu65p"]
 
 [sub_resource type="Animation" id="Animation_s0j2t"]
 length = 0.001
@@ -43,10 +47,27 @@ tracks/0/keys = {
 "values": [ExtResource("2_rpf30"), ExtResource("3_4cfv6"), ExtResource("4_mu65p"), ExtResource("2_rpf30")]
 }
 
+[sub_resource type="Animation" id="Animation_o2tgi"]
+resource_name = "tank_splash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Tank:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_rpf30"), ExtResource("5_7u6rh"), ExtResource("6_75k32"), ExtResource("7_f07lr"), ExtResource("8_kvuqf"), ExtResource("7_f07lr"), ExtResource("8_kvuqf"), ExtResource("7_f07lr"), ExtResource("8_kvuqf"), ExtResource("7_f07lr"), ExtResource("8_kvuqf")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1kvof"]
 _data = {
 &"RESET": SubResource("Animation_s0j2t"),
-&"Tank_Idle": SubResource("Animation_5plo5")
+&"Tank_Idle": SubResource("Animation_5plo5"),
+&"tank_splash": SubResource("Animation_o2tgi")
 }
 
 [node name="Node2D" type="Node2D" unique_id=1013156608]
@@ -90,7 +111,8 @@ icon = ExtResource("2_ihkhm")
 flat = true
 
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_lr4ld")]
-position = Vector2(857, 29)
+position = Vector2(906, -0.9999962)
+scale = Vector2(1.25, 1.25)
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1509564707]
 stream = ExtResource("6_rpf30")
@@ -103,7 +125,7 @@ pitch_scale = 0.87
 
 [node name="SplashSound" type="AudioStreamPlayer2D" parent="." unique_id=356566295]
 stream = ExtResource("10_mu65p")
-volume_db = 10.0
-pitch_scale = 0.87
+volume_db = 6.0
+pitch_scale = 0.9
 
 [connection signal="button_down" from="Target" to="." method="_on_target_button_down"]
