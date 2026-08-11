@@ -79,7 +79,7 @@ text = " 25%"
 
 [node name="volumeAdjustSound" type="AudioStreamPlayer2D" parent="." unique_id=857036191]
 stream = ExtResource("4_2gedn")
-volume_db = 7.0
+volume_db = 11.0
 
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="VolumeBar" to="." method="_on_volume_bar_value_changed"]

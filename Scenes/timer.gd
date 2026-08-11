@@ -16,8 +16,11 @@ func Timer(start_time: float):
 	time = start_time
 	
 	while time > 0.1:
-		await get_tree().create_timer(0.1).timeout
-		time -= 0.1
+		if is_inside_tree(): # hopefully fixes game sometimes crashing on scene change
+			await get_tree().create_timer(0.1).timeout
+			time -= 0.1
+		else:
+			return
 	
 	return
 

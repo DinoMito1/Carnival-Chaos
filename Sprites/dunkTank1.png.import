@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbgmu7pap457p"
-path="res://.godot/imported/Target.png-0f138b363b2a8549ebe742abbb0bf141.ctex"
+uid="uid://craypfhswlmy3"
+path="res://.godot/imported/dunkTank1.png-142b41a031c25893773f61789edf8c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Target.png"
-dest_files=["res://.godot/imported/Target.png-0f138b363b2a8549ebe742abbb0bf141.ctex"]
+source_file="res://Sprites/dunkTank1.png"
+dest_files=["res://.godot/imported/dunkTank1.png-142b41a031c25893773f61789edf8c21.ctex"]
 
 [params]
 

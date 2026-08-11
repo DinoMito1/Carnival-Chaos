@@ -2,31 +2,74 @@
 
 [ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="1_h40nw"]
 [ext_resource type="Script" uid="uid://b3btkksvcrnax" path="res://Scenes/minigame_3.gd" id="1_ihkhm"]
-[ext_resource type="Texture2D" uid="uid://bbgmu7pap457p" path="res://Scenes/Target.png" id="2_ihkhm"]
-[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="2_we0jk"]
+[ext_resource type="Texture2D" uid="uid://bbgmu7pap457p" path="res://Sprites/Target.png" id="2_ihkhm"]
+[ext_resource type="Texture2D" uid="uid://craypfhswlmy3" path="res://Sprites/dunkTank1.png" id="2_rpf30"]
+[ext_resource type="Texture2D" uid="uid://bgednf2l706yv" path="res://Sprites/dunkTank2.png" id="3_4cfv6"]
+[ext_resource type="Texture2D" uid="uid://biepaqm5qfqm0" path="res://Sprites/dunkTank3.png" id="4_mu65p"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_lr4ld"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="6_rpf30"]
 [ext_resource type="AudioStream" uid="uid://c8be1xxorgcsj" path="res://audio/mole_hurt_sfx.mp3" id="7_rpf30"]
+[ext_resource type="AudioStream" uid="uid://cwrtsll8ei1us" path="res://audio/splashTemp.mp3" id="10_mu65p"]
+
+[sub_resource type="Animation" id="Animation_s0j2t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Tank:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rpf30")]
+}
+
+[sub_resource type="Animation" id="Animation_5plo5"]
+resource_name = "Tank_Idle"
+length = 1.05
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Tank:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_rpf30"), ExtResource("3_4cfv6"), ExtResource("4_mu65p"), ExtResource("2_rpf30")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kvof"]
+_data = {
+&"RESET": SubResource("Animation_s0j2t"),
+&"Tank_Idle": SubResource("Animation_5plo5")
+}
 
 [node name="Node2D" type="Node2D" unique_id=1013156608]
 script = ExtResource("1_ihkhm")
 
-[node name="Background" type="TextureRect" parent="." unique_id=277350602]
-modulate = Color(0.21230483, 0.21230483, 0.21230483, 1)
+[node name="Background" type="ColorRect" parent="." unique_id=2064832325]
 offset_left = 1.9999924
 offset_top = 4.0
 offset_right = 130.0
 offset_bottom = 132.0
 scale = Vector2(9.003576, 5.033303)
-texture = ExtResource("2_we0jk")
+color = Color(0.21851066, 0.00054970133, 0.49656564, 1)
 
 [node name="Tank" type="Sprite2D" parent="." unique_id=785212510]
-modulate = Color(0.17828321, 0.6246093, 0.9999998, 1)
-position = Vector2(394, 345.25)
-scale = Vector2(4.8815923, 4.6914063)
-texture = ExtResource("2_we0jk")
+position = Vector2(602, 332)
+texture = ExtResource("2_rpf30")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tank" unique_id=1118244435]
+root_node = NodePath("../../Target")
+libraries/ = SubResource("AnimationLibrary_1kvof")
 
 [node name="MashIcon" type="TextureRect" parent="." unique_id=597837337]
+modulate = Color(0.8500505, 0.85005057, 0.8500507, 1)
 z_index = 2
 offset_left = 195.00002
 offset_top = 56.999992
@@ -55,6 +98,11 @@ parameters/looping = true
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=848068661]
 stream = ExtResource("7_rpf30")
+volume_db = 10.0
+pitch_scale = 0.87
+
+[node name="SplashSound" type="AudioStreamPlayer2D" parent="." unique_id=356566295]
+stream = ExtResource("10_mu65p")
 volume_db = 10.0
 pitch_scale = 0.87
 
