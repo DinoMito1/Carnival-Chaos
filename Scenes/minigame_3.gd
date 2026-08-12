@@ -2,10 +2,6 @@ extends Node2D
 @onready var clicks = 0
 @onready var won = false
 @onready var targetTween = get_tree().create_tween()
-#animation sprites
-@onready var idle1 = preload("res://Sprites/dunkTank1.png")
-@onready var idle2 = preload("res://Sprites/dunkTank2.png")
-@onready var idle3 = preload("res://Sprites/dunkTank3.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,7 +38,7 @@ func _process(delta: float) -> void:
 		
 		await get_tree().create_timer(2).timeout
 		
-		if Global.minigames_done == 3:
+		if Global.minigames_done == 4:
 			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")

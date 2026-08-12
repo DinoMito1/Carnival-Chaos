@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://hgjvjoiql5ru"]
+
+[ext_resource type="Texture2D" uid="uid://6ngpduu1xnfa" path="res://Sprites/WaterGun1.png" id="1_4ashd"]
+[ext_resource type="Script" uid="uid://klwlh2wmdu0" path="res://Scenes/minigame_4.gd" id="1_lrixb"]
+[ext_resource type="Texture2D" uid="uid://drn8h436qangq" path="res://Sprites/targetTrack2.png" id="2_frvhq"]
+[ext_resource type="Texture2D" uid="uid://cd44bd1td4bbx" path="res://Sprites/waterJet.png" id="3_ksguu"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="3_xea2i"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="4_ake4f"]
+[ext_resource type="Script" uid="uid://b3q5msd7aqtf8" path="res://Scenes/water_hit_part.gd" id="5_57wpc"]
+[ext_resource type="Texture2D" uid="uid://bbgmu7pap457p" path="res://Sprites/Target.png" id="6_57wpc"]
+[ext_resource type="Texture2D" uid="uid://dojlvmd5oi42f" path="res://Sprites/waterGunSplash1.png" id="7_y1k8l"]
+[ext_resource type="Texture2D" uid="uid://b4rsan4u7xkrr" path="res://Scenes/waterGunSplash2.png" id="8_ksguu"]
+[ext_resource type="Texture2D" uid="uid://psbej5yglyrc" path="res://Sprites/waterGunSplash3.png" id="9_jlqlc"]
+[ext_resource type="Texture2D" uid="uid://1i24usxg5khm" path="res://Sprites/waterMeter1.png" id="12_jlqlc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frvhq"]
+radius = 73.43705
+
+[sub_resource type="Animation" id="Animation_aaoy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_y1k8l")]
+}
+
+[sub_resource type="Animation" id="Animation_ylyf8"]
+resource_name = "waterGunSplash"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_y1k8l"), ExtResource("8_ksguu"), ExtResource("9_jlqlc"), ExtResource("7_y1k8l"), ExtResource("8_ksguu"), ExtResource("9_jlqlc"), ExtResource("7_y1k8l")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8ta0"]
+_data = {
+&"RESET": SubResource("Animation_aaoy5"),
+&"waterGunSplash": SubResource("Animation_ylyf8")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yexny"]
+radius = 127.12199
+
+[sub_resource type="Animation" id="Animation_yexny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(541, 83)]
+}
+
+[sub_resource type="Animation" id="Animation_y1k8l"]
+resource_name = "TargetTrackFollow"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4, 5, 7, 8, 9),
+"transitions": PackedFloat32Array(0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027),
+"update": 0,
+"values": [Vector2(700, 89), Vector2(420, 91), Vector2(270, 180), Vector2(280, 317), Vector2(422, 418), Vector2(726, 416), Vector2(850, 313), Vector2(860, 176)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksguu"]
+_data = {
+&"RESET": SubResource("Animation_yexny"),
+&"TargetTrackFollow": SubResource("Animation_y1k8l")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frvhq"]
+size = Vector2(23, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yexny"]
+size = Vector2(24.691713, 3449.2563)
+
+[node name="Node2D" type="Node2D" unique_id=74783193]
+script = ExtResource("1_lrixb")
+
+[node name="Background" type="ColorRect" parent="." unique_id=461928986]
+z_index = -2
+offset_left = -47.0
+offset_top = -53.0
+offset_right = 1215.0
+offset_bottom = 700.0
+color = Color(0.18274608, 0.1936458, 0.53739065, 1)
+
+[node name="TargetTrack" type="Sprite2D" parent="." unique_id=634799088]
+modulate = Color(0.8431839, 0.8431839, 0.84318376, 1)
+position = Vector2(526, 252)
+scale = Vector2(1.3881019, 1)
+texture = ExtResource("2_frvhq")
+
+[node name="WaterJet" type="Sprite2D" parent="." unique_id=908239952]
+modulate = Color(1, 1, 1, 0.8627451)
+z_index = 1
+position = Vector2(564, 481)
+scale = Vector2(0.492, 0.35)
+texture = ExtResource("3_ksguu")
+offset = Vector2(-1, -271)
+
+[node name="WaterGun" type="Sprite2D" parent="." unique_id=1372449101]
+z_index = 3
+position = Vector2(565, 550)
+texture = ExtResource("1_4ashd")
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=540955653]
+stream = ExtResource("3_xea2i")
+parameters/looping = true
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("4_ake4f")]
+position = Vector2(49, 12)
+
+[node name="WaterHitPart" type="CharacterBody2D" parent="." unique_id=285466894]
+modulate = Color(1, 1, 1, 0.8627451)
+z_index = 2
+position = Vector2(566, 300)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("5_57wpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterHitPart" unique_id=317288489]
+shape = SubResource("CircleShape2D_frvhq")
+
+[node name="Sprite2D" type="Sprite2D" parent="WaterHitPart" unique_id=1469250675]
+texture = ExtResource("7_y1k8l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WaterHitPart" unique_id=1207893030]
+libraries/ = SubResource("AnimationLibrary_m8ta0")
+
+[node name="Target" type="Area2D" parent="." unique_id=704605226]
+position = Vector2(541, 83)
+scale = Vector2(0.3, 0.3)
+
+[node name="TargetSprite" type="Sprite2D" parent="Target" unique_id=770122896]
+texture = ExtResource("6_57wpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=986873091]
+shape = SubResource("CircleShape2D_yexny")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Target" unique_id=1466345457]
+libraries/ = SubResource("AnimationLibrary_ksguu")
+
+[node name="Border" type="StaticBody2D" parent="." unique_id=1192079190]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border" unique_id=938967427]
+position = Vector2(2, 325)
+shape = SubResource("RectangleShape2D_frvhq")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border" unique_id=742612565]
+position = Vector2(579.6905, 593.0999)
+scale = Vector2(46.923397, -0.04470523)
+shape = SubResource("RectangleShape2D_yexny")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border" unique_id=2113409109]
+position = Vector2(578, -59.999878)
+scale = Vector2(46.923397, -0.04470523)
+shape = SubResource("RectangleShape2D_yexny")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border" unique_id=1918532812]
+position = Vector2(1152, 324)
+shape = SubResource("RectangleShape2D_frvhq")
+
+[node name="WaterMeter" type="Sprite2D" parent="." unique_id=157806932]
+z_index = -1
+position = Vector2(1011, 365)
+texture = ExtResource("12_jlqlc")
+
+[connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]
+[connection signal="body_exited" from="Target" to="." method="_on_target_body_exited"]

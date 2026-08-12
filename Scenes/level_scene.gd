@@ -32,8 +32,10 @@ func _ready() -> void:
 		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
 	elif Global.minigames_done == 2:
 		controlTween.tween_property($MouseIcon, "scale", Vector2(1,1), 2)
+	elif Global.minigames_done == 3:
+		controlTween.tween_property($ArrowKeyIcon, "scale", Vector2(1,1), 2)
 
-		
+	
 	await Timer(3.0)
 	
 	var tweenOut = get_tree().create_tween() 
@@ -46,13 +48,15 @@ func _ready() -> void:
 		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
 	elif Global.minigames_done == 2:
 		tweenOut.tween_property($MashIcon, "modulate:a", 1, .25)
+	#elif Global.minigames_done == 3:
+		#tweenOut.tween_property($MashIcon, "modulate:a", 1, .25) #put shoot icon
 	
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
 	
 	await get_tree().create_timer(.5).timeout
 	
-	if Global.minigames_done < 3:
+	if Global.minigames_done < 4:
 		Global.minigames_done += 1
 		get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn")
 		#changes scene to the minigame based on how many minigames were played
