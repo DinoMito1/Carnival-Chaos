@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cw0whj0ut4x3x" path="res://Sprites/Collect Icon.png" id="6_lymix"]
 [ext_resource type="Texture2D" uid="uid://c07000lqqa3le" path="res://Sprites/Hit_icon.png" id="7_b7jio"]
 [ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="8_c8y3w"]
+[ext_resource type="Texture2D" uid="uid://df72puvhful1e" path="res://Sprites/SprayIcon.png" id="9_66tft"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
 script = ExtResource("1_c7xwe")
@@ -134,3 +135,13 @@ offset_bottom = 314.0
 rotation = -0.035154738
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_c8y3w")
+
+[node name="SprayIcon" type="TextureRect" parent="." unique_id=230308858]
+modulate = Color(1, 1, 1, 0)
+offset_left = 195.00002
+offset_top = 56.999992
+offset_right = 1154.0
+offset_bottom = 314.0
+rotation = -0.026796151
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_66tft")

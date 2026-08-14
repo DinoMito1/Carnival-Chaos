@@ -48,8 +48,8 @@ func _ready() -> void:
 		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
 	elif Global.minigames_done == 2:
 		tweenOut.tween_property($MashIcon, "modulate:a", 1, .25)
-	#elif Global.minigames_done == 3:
-		#tweenOut.tween_property($MashIcon, "modulate:a", 1, .25) #put shoot icon
+	elif Global.minigames_done == 3:
+		tweenOut.tween_property($SprayIcon, "modulate:a", 1, .25)
 	
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
