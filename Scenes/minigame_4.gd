@@ -21,6 +21,7 @@ extends Node2D
 @onready var meterFill10 = preload("res://Sprites/waterMeter10.png")
 @onready var meterFill11 = preload("res://Sprites/waterMeter11.png")
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TimeTickingSound.play()
@@ -99,11 +100,23 @@ func _process(delta: float) -> void:
 			$MeterSoundThing.pitch_scale = 1.6
 			$WaterMeter.texture = meterFill11
 		
-	if timeIn >= maxTime:
+	if timeIn >= maxTime: # if you win
+		
 		$TimeTickingSound.stop()
+		if won == false:
+			$WinSound.play()
+			var waterTween = get_tree().create_tween()
+			#makes the water stream go away after winning
+			waterTween.set_parallel(true)
+			waterTween.tween_property($WaterHitPart, "modulate:a", 0, 1.9)
+			waterTween.tween_property($WaterHitPart, "position", Vector2(564,481), 2).set_trans(Tween.TRANS_CUBIC)
+			waterTween.tween_property($WaterJet, "modulate:a", 0, 1)
+			waterTween.tween_property($WaterJetSound, "volume_linear", 0, 1.9)
+			waterTween.tween_property($Target/AnimationPlayer, "speed_scale", 0, 1)
 		won = true
 		
-		await get_tree().create_timer(1).timeout
+		
+		await get_tree().create_timer(2).timeout
 		
 		if Global.minigames_done == 4:
 			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
@@ -113,10 +126,14 @@ func _process(delta: float) -> void:
 
 func _on_target_body_entered(body: Node2D) -> void:
 	inZone = true
+	var TargetShrinkTween = get_tree().create_tween()
+	TargetShrinkTween.tween_property($Target, "scale", Vector2(.9,.9), .1)
 
 
 func _on_target_body_exited(body: Node2D) -> void:
 	inZone = false
+	var TargetGrowTween = get_tree().create_tween()
+	TargetGrowTween.tween_property($Target, "scale", Vector2(1,1), .1)
 
 
 func _on_water_meter_texture_changed() -> void:

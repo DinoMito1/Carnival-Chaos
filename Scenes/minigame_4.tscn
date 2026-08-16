@@ -1,19 +1,23 @@
 [gd_scene format=3 uid="uid://hgjvjoiql5ru"]
 
-[ext_resource type="Texture2D" uid="uid://6ngpduu1xnfa" path="res://Sprites/WaterGun1.png" id="1_4ashd"]
 [ext_resource type="Script" uid="uid://klwlh2wmdu0" path="res://Scenes/minigame_4.gd" id="1_lrixb"]
 [ext_resource type="Texture2D" uid="uid://drn8h436qangq" path="res://Sprites/targetTrack2.png" id="2_frvhq"]
+[ext_resource type="Texture2D" uid="uid://ii3bh5l6j7ig" path="res://Sprites/WaterWall.png" id="2_ph87j"]
 [ext_resource type="Texture2D" uid="uid://cd44bd1td4bbx" path="res://Sprites/waterJet.png" id="3_ksguu"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="3_xea2i"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="4_ake4f"]
 [ext_resource type="Script" uid="uid://b3q5msd7aqtf8" path="res://Scenes/water_hit_part.gd" id="5_57wpc"]
-[ext_resource type="Texture2D" uid="uid://bbgmu7pap457p" path="res://Sprites/Target.png" id="6_57wpc"]
+[ext_resource type="Texture2D" uid="uid://bs7g5replopcm" path="res://Sprites/WaterGunfixed.png" id="5_ph87j"]
 [ext_resource type="Texture2D" uid="uid://dojlvmd5oi42f" path="res://Sprites/waterGunSplash1.png" id="7_y1k8l"]
 [ext_resource type="Texture2D" uid="uid://b4rsan4u7xkrr" path="res://Scenes/waterGunSplash2.png" id="8_ksguu"]
 [ext_resource type="Texture2D" uid="uid://psbej5yglyrc" path="res://Sprites/waterGunSplash3.png" id="9_jlqlc"]
+[ext_resource type="Texture2D" uid="uid://fho33m5lr4h" path="res://LilTarget1.png" id="11_ph87j"]
 [ext_resource type="Texture2D" uid="uid://1i24usxg5khm" path="res://Sprites/waterMeter1.png" id="12_jlqlc"]
+[ext_resource type="Texture2D" uid="uid://7rtoq4y2brvg" path="res://Sprites/LilTarget2.png" id="12_ndypt"]
 [ext_resource type="AudioStream" uid="uid://bga6ysa31pjdh" path="res://audio/buh.mp3" id="13_aaoy5"]
+[ext_resource type="Texture2D" uid="uid://cjwexaoh0p662" path="res://Sprites/LilTarget3.png" id="13_qw0ue"]
 [ext_resource type="AudioStream" uid="uid://cn6j3udq4kwa0" path="res://audio/waterJetSound.mp3" id="13_ylyf8"]
+[ext_resource type="AudioStream" uid="uid://c1r8nrdhv6oa6" path="res://audio/DingDingDing.mp3" id="15_hkr3k"]
 [ext_resource type="Texture2D" uid="uid://df72puvhful1e" path="res://Sprites/SprayIcon.png" id="15_m8ta0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frvhq"]
@@ -58,7 +62,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yexny"]
-radius = 104.19004
+radius = 34.20526
 
 [sub_resource type="Animation" id="Animation_yexny"]
 length = 0.001
@@ -73,6 +77,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(541, 83)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_ph87j")]
 }
 
 [sub_resource type="Animation" id="Animation_y1k8l"]
@@ -90,6 +106,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027, 0.25000027),
 "update": 0,
 "values": [Vector2(700, 89), Vector2(420, 91), Vector2(270, 180), Vector2(280, 317), Vector2(422, 418), Vector2(726, 416), Vector2(850, 313), Vector2(860, 176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TargetSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue"), ExtResource("11_ph87j"), ExtResource("12_ndypt"), ExtResource("13_qw0ue")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ksguu"]
@@ -113,7 +141,13 @@ offset_left = -47.0
 offset_top = -53.0
 offset_right = 1215.0
 offset_bottom = 700.0
-color = Color(0.18274608, 0.1936458, 0.53739065, 1)
+color = Color(0.27505997, 0.29177222, 0.7376354, 1)
+
+[node name="BGWall" type="Sprite2D" parent="." unique_id=1500323650]
+z_index = -1
+position = Vector2(576, 323.87314)
+scale = Vector2(1.0017362, 1.0088679)
+texture = ExtResource("2_ph87j")
 
 [node name="TargetTrack" type="Sprite2D" parent="." unique_id=634799088]
 modulate = Color(0.8431839, 0.8431839, 0.84318376, 1)
@@ -132,7 +166,7 @@ offset = Vector2(-1, -271)
 [node name="WaterGun" type="Sprite2D" parent="." unique_id=1372449101]
 z_index = 3
 position = Vector2(565, 550)
-texture = ExtResource("1_4ashd")
+texture = ExtResource("5_ph87j")
 
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("4_ake4f")]
 position = Vector2(49, 12)
@@ -155,10 +189,9 @@ libraries/ = SubResource("AnimationLibrary_m8ta0")
 
 [node name="Target" type="Area2D" parent="." unique_id=704605226]
 position = Vector2(541, 83)
-scale = Vector2(0.3, 0.3)
 
 [node name="TargetSprite" type="Sprite2D" parent="Target" unique_id=770122896]
-texture = ExtResource("6_57wpc")
+texture = ExtResource("11_ph87j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target" unique_id=986873091]
 shape = SubResource("CircleShape2D_yexny")
@@ -188,6 +221,7 @@ position = Vector2(1152, 324)
 shape = SubResource("RectangleShape2D_frvhq")
 
 [node name="WaterMeter" type="Sprite2D" parent="." unique_id=157806932]
+modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
 z_index = -1
 position = Vector2(1011, 365)
 texture = ExtResource("12_jlqlc")
@@ -206,6 +240,12 @@ position = Vector2(-1, 1)
 stream = ExtResource("13_aaoy5")
 volume_db = -2.0
 pitch_scale = 0.8
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="." unique_id=633051639]
+position = Vector2(-1, 1)
+stream = ExtResource("15_hkr3k")
+volume_db = 10.0
+pitch_scale = 1.2
 
 [node name="SprayIcon" type="TextureRect" parent="." unique_id=687560587]
 offset_left = 195.00002
