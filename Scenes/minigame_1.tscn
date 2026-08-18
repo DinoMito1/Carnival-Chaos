@@ -317,7 +317,6 @@ volume_db = 10.0
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1347449859]
 stream = ExtResource("12_o14ck")
-parameters/looping = true
 
 [connection signal="coin_collected" from="Coin" to="." method="coin_collect"]
 [connection signal="coin_collected" from="Coin2" to="." method="coin_collect"]
