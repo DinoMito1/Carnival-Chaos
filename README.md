@@ -13,7 +13,7 @@ Complete all the minigames as fast as you can to get the fastest time
   + Four different carnival minigames
   + Keeps track of your fastest time so you can try to win as quickly as possible
   + A volume slider in settings
-  + Popups showing the controls for the next minigame
+  + Custom win and loss screen
   + Sound effects all made by yours truly!
 
 The game is fully coded in the Godot engine using GDScript. I had some help making the first two minigames thanks to the Stardance "Make a WarioWare Game" Mission, but all minigames after that were made entirely by me
