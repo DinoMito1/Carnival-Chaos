@@ -10,12 +10,12 @@ Complete all the minigames as fast as you can to get the fastest time
 
 ## Features:
 
-  + Four different fun carnival minigames
+  + Four different carnival minigames
   + Keeps track of your fastest time so you can try to win as quickly as possible
   + A volume slider in settings
-  + Clear indicatory of the controls for each minigame
+  + Popups showing the controls for the next minigame
   + Sound effects all made by yours truly!
 
-The game is fully coded in the Godot engine using GDScript. I had some help making the first two minigames thanks to the Stardance "Make a WarioWare Game" Mission, but all games after that were made entirely by me
+The game is fully coded in the Godot engine using GDScript. I had some help making the first two minigames thanks to the Stardance "Make a WarioWare Game" Mission, but all minigames after that were made entirely by me
 
 <img width="1820" height="985" alt="Whack-a-Mole!" src="https://github.com/user-attachments/assets/6778a194-9513-499c-824c-6e4512c9910a" />
