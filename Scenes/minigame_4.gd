@@ -138,3 +138,11 @@ func _on_target_body_exited(body: Node2D) -> void:
 
 func _on_water_meter_texture_changed() -> void:
 	$MeterSoundThing.play()
+
+
+func _on_time_ticking_sound_finished() -> void: # this gets around sound not looping on web export for some reason
+	$TimeTickingSound.play()
+
+
+func _on_water_jet_sound_finished() -> void: # same as previous function
+	$WaterJetSound.play()

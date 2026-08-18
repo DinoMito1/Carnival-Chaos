@@ -91,3 +91,4 @@ parameters/looping = true
 [connection signal="pressed" from="Button_3" to="Button_3" method="_on_pressed"]
 [connection signal="pressed" from="Button_4" to="Button_4" method="_on_pressed"]
 [connection signal="pressed" from="Button_5" to="Button_5" method="_on_pressed"]
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]

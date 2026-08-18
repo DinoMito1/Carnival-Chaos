@@ -130,3 +130,4 @@ volume_db = 6.0
 pitch_scale = 0.9
 
 [connection signal="button_down" from="Target" to="." method="_on_target_button_down"]
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]

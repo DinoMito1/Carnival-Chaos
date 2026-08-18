@@ -41,3 +41,7 @@ func _process(delta: float) -> void:
 func coin_collect() -> void:
 	coins_collected += 1
 	return
+
+
+func _on_time_ticking_sound_finished() -> void: #this gets around sound not looping on web export for some reason
+	$TimeTickingSound.play()

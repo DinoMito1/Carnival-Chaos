@@ -36,3 +36,7 @@ func _process(delta: float) -> void:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
+
+
+func _on_time_ticking_sound_finished() -> void: #this gets around sound not looping on web export for some reason
+	$TimeTickingSound.play()

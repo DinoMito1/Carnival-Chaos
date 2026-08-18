@@ -53,3 +53,7 @@ func _on_target_button_down() -> void:
 		$HitSound.pitch_scale = randf_range(0.7, 1.03) + (clicks * 0.025)
 		$HitSound.play()
 		$Target.scale += Vector2(0.025, 0.025)
+
+
+func _on_time_ticking_sound_finished() -> void: #this gets around sound not looping on web export for some reason
+	$TimeTickingSound.play()

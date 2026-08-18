@@ -260,3 +260,5 @@ texture = ExtResource("15_m8ta0")
 [connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]
 [connection signal="body_exited" from="Target" to="." method="_on_target_body_exited"]
 [connection signal="texture_changed" from="WaterMeter" to="." method="_on_water_meter_texture_changed"]
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
+[connection signal="finished" from="WaterJetSound" to="." method="_on_water_jet_sound_finished"]
