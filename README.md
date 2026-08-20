@@ -17,6 +17,7 @@ Complete all the minigames as fast as you can to get the fastest time
   + Custom win and loss screen
   + Sound effects all made by yours truly!
 
+##
 The four minigames are:
 
 Hay Bale Climb - a platformer where you must climb the hay bales and collect all the coins
