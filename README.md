@@ -20,10 +20,13 @@ Complete all the minigames as fast as you can to get the fastest time
 ##
 The four minigames are:
 
-Hay Bale Climb - a platformer where you must climb the hay bales and collect all the coins
-Whack-a-mole - Quickly click on all of the moles before time runs out
-Dunk Tank - Rapidly hit the target to dunk the person in water
-Water Gun - spray the target with a water gun to fill up the meter and win
+__Hay Bale Climb__ - a platformer where you must climb the hay bales and collect all the coins
+
+__Whack-a-mole__ - Quickly click on all of the moles before time runs out
+
+__Dunk Tank__ - Rapidly hit the target to dunk the person in water
+
+__Water Gun__ - spray the target with a water gun to fill up the meter and win
 
 The game is fully coded in the Godot engine using GDScript. I had some help making the first two minigames thanks to the Stardance "Make a WarioWare Game" Mission, but all minigames after that were made entirely by me
 
