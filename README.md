@@ -6,7 +6,8 @@ Complete all the minigames as fast as you can to get the fastest time
 
 <img width="1757" height="993" alt="Carnival Chaos Cover Art" src="https://github.com/user-attachments/assets/c6fafbb4-76eb-485f-bbb1-1354f37e0fda" />
 
-[![Click me to play!](https://github.com/user-attachments/assets/3d47bcbf-1e35-4003-a682-655e9200b603)](https://dino-mito.itch.io/carnival-chaos)
+## How to play:
+   Go to **https://dino-mito.itch.io/carnival-chaos** and click "Run game"
 
 ## Features:
 
