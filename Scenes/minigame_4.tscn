@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dojlvmd5oi42f" path="res://Sprites/waterGunSplash1.png" id="7_y1k8l"]
 [ext_resource type="Texture2D" uid="uid://b4rsan4u7xkrr" path="res://Scenes/waterGunSplash2.png" id="8_ksguu"]
 [ext_resource type="Texture2D" uid="uid://psbej5yglyrc" path="res://Sprites/waterGunSplash3.png" id="9_jlqlc"]
-[ext_resource type="Texture2D" uid="uid://fho33m5lr4h" path="res://LilTarget1.png" id="11_ph87j"]
+[ext_resource type="Texture2D" uid="uid://fho33m5lr4h" path="res://Sprites/LilTarget1.png" id="11_ph87j"]
 [ext_resource type="Texture2D" uid="uid://1i24usxg5khm" path="res://Sprites/waterMeter1.png" id="12_jlqlc"]
 [ext_resource type="Texture2D" uid="uid://7rtoq4y2brvg" path="res://Sprites/LilTarget2.png" id="12_ndypt"]
 [ext_resource type="AudioStream" uid="uid://bga6ysa31pjdh" path="res://audio/buh.mp3" id="13_aaoy5"]
@@ -19,6 +19,15 @@
 [ext_resource type="AudioStream" uid="uid://cn6j3udq4kwa0" path="res://audio/waterJetSound.mp3" id="13_ylyf8"]
 [ext_resource type="AudioStream" uid="uid://c1r8nrdhv6oa6" path="res://audio/DingDingDing.mp3" id="15_hkr3k"]
 [ext_resource type="Texture2D" uid="uid://df72puvhful1e" path="res://Sprites/SprayIcon.png" id="15_m8ta0"]
+[ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="20_j0k2e"]
+[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Scenes/MobileControlLeft.png" id="21_8lk8e"]
+[ext_resource type="BitMap" uid="uid://d28cqomwahn0q" path="res://Sprites/MobileControlLeftMask.bmp" id="22_35bil"]
+[ext_resource type="Texture2D" uid="uid://chky6pa6yt8hl" path="res://Sprites/MobileControlUp.png" id="23_hj8jm"]
+[ext_resource type="BitMap" uid="uid://rxbjcser7pop" path="res://Sprites/MobileControlTopMask.bmp" id="24_rytk7"]
+[ext_resource type="Texture2D" uid="uid://cgin4t8v6051b" path="res://Sprites/MobileControlBottom.png" id="25_4weqp"]
+[ext_resource type="BitMap" uid="uid://c8enk5m72861r" path="res://Sprites/MobileControlBottomMask.bmp" id="26_rjv4k"]
+[ext_resource type="Texture2D" uid="uid://ciq1mcr3l0yqp" path="res://Sprites/MobileControlRight.png" id="27_1xe7f"]
+[ext_resource type="BitMap" uid="uid://f5j6chd6kt0d" path="res://Sprites/MobileControlRightMask.bmp" id="28_mbqm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frvhq"]
 radius = 63.945778
@@ -256,6 +265,48 @@ rotation = -0.026796151
 scale = Vector2(0.8, 0.8)
 mouse_filter = 2
 texture = ExtResource("15_m8ta0")
+
+[node name="MobileArrowControl" type="Sprite2D" parent="." unique_id=1063080365]
+self_modulate = Color(1, 1, 1, 0.3137255)
+z_index = 5
+position = Vector2(198, 468.99994)
+scale = Vector2(1.3359966, 1.3359966)
+texture = ExtResource("20_j0k2e")
+
+[node name="MobileLeft" type="TouchScreenButton" parent="MobileArrowControl" unique_id=2111259097]
+self_modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-142.96443, -71.10795)
+texture_normal = ExtResource("21_8lk8e")
+bitmask = ExtResource("22_35bil")
+action = "ui_left"
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1118901632]
+self_modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-83.83252, -138.47339)
+rotation = 0.022965576
+texture_normal = ExtResource("23_hj8jm")
+bitmask = ExtResource("24_rytk7")
+action = "ui_up"
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=808099088]
+self_modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-83.83253, -18.712597)
+rotation = 0.022965576
+texture_normal = ExtResource("25_4weqp")
+bitmask = ExtResource("26_rjv4k")
+action = "ui_down"
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=831700152]
+self_modulate = Color(1, 1, 1, 0.78431374)
+position = Vector2(-18.712608, -72.60494)
+rotation = 0.022965576
+texture_normal = ExtResource("27_1xe7f")
+bitmask = ExtResource("28_mbqm0")
+action = "ui_right"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]
 [connection signal="body_exited" from="Target" to="." method="_on_target_body_exited"]

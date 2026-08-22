@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://f5j6chd6kt0d"
+path="res://.godot/imported/MobileControlRightMask.bmp-9e2efa1f5a4cede7b4df24abc16f395f.res"
+
+[deps]
+
+source_file="res://Sprites/MobileControlRightMask.bmp"
+dest_files=["res://.godot/imported/MobileControlRightMask.bmp-9e2efa1f5a4cede7b4df24abc16f395f.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

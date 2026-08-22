@@ -9,6 +9,11 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($CollectIcon, "modulate:a", 0, 2)
 	
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$MobileArrowControl.show()
+	else:
+		$MobileArrowControl.hide()
+	
 	# plays the coin floating anim
 	$Coin/AnimationPlayer.play("floating")
 	$Coin2/AnimationPlayer.play("floating")

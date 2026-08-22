@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0e7niqonx8le"
-path="res://.godot/imported/index.png-b259ab16718bc210c505332965363aff.ctex"
+uid="uid://ciq1mcr3l0yqp"
+path="res://.godot/imported/MobileControlRight.png-d06f421da3ad2ffba0444a3bab9cec93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://exports/index.png"
-dest_files=["res://.godot/imported/index.png-b259ab16718bc210c505332965363aff.ctex"]
+source_file="res://Sprites/MobileControlRight.png"
+dest_files=["res://.godot/imported/MobileControlRight.png-d06f421da3ad2ffba0444a3bab9cec93.ctex"]
 
 [params]
 

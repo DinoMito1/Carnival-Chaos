@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0e7niqonx8le"
-path="res://.godot/imported/index.png-b259ab16718bc210c505332965363aff.ctex"
+uid="uid://cw8kcw6iubdko"
+path="res://.godot/imported/MobileControlLeft.png-324a321ac3ac2f66157121efdc96006b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://exports/index.png"
-dest_files=["res://.godot/imported/index.png-b259ab16718bc210c505332965363aff.ctex"]
+source_file="res://Scenes/MobileControlLeft.png"
+dest_files=["res://.godot/imported/MobileControlLeft.png-324a321ac3ac2f66157121efdc96006b.ctex"]
 
 [params]
 

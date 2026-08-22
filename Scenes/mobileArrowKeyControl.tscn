@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b28j3m4n1mc23"]
+
+[ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="1_vr12h"]
+[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Scenes/MobileControlLeft.png" id="2_j64t6"]
+[ext_resource type="BitMap" uid="uid://d28cqomwahn0q" path="res://Sprites/MobileControlLeftMask.bmp" id="3_m04wo"]
+[ext_resource type="Texture2D" uid="uid://chky6pa6yt8hl" path="res://Sprites/MobileControlUp.png" id="4_m04wo"]
+[ext_resource type="Texture2D" uid="uid://cgin4t8v6051b" path="res://Sprites/MobileControlBottom.png" id="5_5kid7"]
+[ext_resource type="BitMap" uid="uid://rxbjcser7pop" path="res://Sprites/MobileControlTopMask.bmp" id="5_xopvj"]
+[ext_resource type="Texture2D" uid="uid://ciq1mcr3l0yqp" path="res://Sprites/MobileControlRight.png" id="6_xopvj"]
+[ext_resource type="BitMap" uid="uid://c8enk5m72861r" path="res://Sprites/MobileControlBottomMask.bmp" id="7_7ty2b"]
+[ext_resource type="BitMap" uid="uid://f5j6chd6kt0d" path="res://Sprites/MobileControlRightMask.bmp" id="9_1su4i"]
+
+[node name="Node2D" type="Node2D" unique_id=2075350292]
+
+[node name="MobileArrowControl" type="Sprite2D" parent="." unique_id=1975231972]
+self_modulate = Color(1, 1, 1, 0.3137255)
+texture = ExtResource("1_vr12h")
+
+[node name="MobileLeft" type="TextureButton" parent="MobileArrowControl" unique_id=1970610527]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = -143.0
+offset_top = -71.0
+offset_right = 22.0
+offset_bottom = 64.0
+texture_normal = ExtResource("2_j64t6")
+texture_click_mask = ExtResource("3_m04wo")
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileUp" type="TextureButton" parent="MobileArrowControl" unique_id=1010453526]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = -85.0
+offset_top = -141.0
+offset_right = 80.0
+offset_bottom = -6.0
+rotation = 0.022965576
+texture_normal = ExtResource("4_m04wo")
+texture_click_mask = ExtResource("5_xopvj")
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileBottom" type="TextureButton" parent="MobileArrowControl" unique_id=260229603]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = -84.0
+offset_top = -17.0
+offset_right = 81.0
+offset_bottom = 118.0
+rotation = 0.022965576
+texture_normal = ExtResource("5_5kid7")
+texture_click_mask = ExtResource("7_7ty2b")
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileRight" type="TextureButton" parent="MobileArrowControl" unique_id=52221951]
+self_modulate = Color(1, 1, 1, 0.78431374)
+offset_left = -20.0
+offset_top = -73.0
+offset_right = 145.0
+offset_bottom = 62.0
+rotation = 0.022965576
+texture_normal = ExtResource("6_xopvj")
+texture_click_mask = ExtResource("9_1su4i")
+metadata/_edit_use_anchors_ = true

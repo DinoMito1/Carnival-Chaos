@@ -49,4 +49,6 @@ func _on_settings_pressed() -> void:
 
 
 func _on_quit_pressed() -> void:
+	$"fade to black thing".show()
+	$"fade to black thing".modulate.a = 255
 	get_tree().quit()

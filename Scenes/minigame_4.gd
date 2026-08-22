@@ -31,6 +31,11 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($SprayIcon, "modulate:a", 0, 2)
 	
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$MobileArrowControl.show()
+	else:
+		$MobileArrowControl.hide()
+	
 	await $ThemedTimer.Timer(9)
 	
 	$TimeTickingSound.stop()
