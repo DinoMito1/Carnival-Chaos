@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bs8i47asq5ekd"]
+
+[ext_resource type="Script" uid="uid://bi25l3weughjw" path="res://Scenes/minigame_5.gd" id="1_6fijl"]
+[ext_resource type="Texture2D" uid="uid://c07000lqqa3le" path="res://Sprites/Hit_icon.png" id="2_28s5m"]
+[ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="2_ofli8"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="3_ofli8"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_kpx3j"]
+[ext_resource type="Texture2D" uid="uid://cqvo7skexw8m2" path="res://Sprites/HammerTower.png" id="6_ykq01"]
+[ext_resource type="Texture2D" uid="uid://b3mkw8j3apxp2" path="res://Sprites/HammerBell.png" id="7_5l52r"]
+
+[node name="Node2D" type="Node2D" unique_id=377344023]
+script = ExtResource("1_6fijl")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1849832914]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ofli8")
+
+[node name="HitIcon" type="TextureRect" parent="." unique_id=1091893636]
+z_index = 6
+offset_left = 207.0
+offset_top = 93.0
+offset_right = 967.0
+offset_bottom = 279.0
+mouse_filter = 2
+texture = ExtResource("2_28s5m")
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1314333200]
+stream = ExtResource("3_ofli8")
+parameters/looping = true
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_kpx3j")]
+position = Vector2(22, -9)
+
+[node name="HammerTower" type="Sprite2D" parent="." unique_id=1409738958]
+position = Vector2(596, 316)
+texture = ExtResource("6_ykq01")
+
+[node name="HammerBell" type="Sprite2D" parent="." unique_id=1264147868]
+position = Vector2(589, 76)
+texture = ExtResource("7_5l52r")
