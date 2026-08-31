@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5q3ur6moa2i2"
-path="res://.godot/imported/HammerTower.png-aa1fdca932621216cdf8e1f142a419ed.ctex"
+uid="uid://cibqadpgtdhxo"
+path="res://.godot/imported/HammerBase.png-815f5fd0b7a2bb739a2d9a9fe9ec204c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/HammerTower.png"
-dest_files=["res://.godot/imported/HammerTower.png-aa1fdca932621216cdf8e1f142a419ed.ctex"]
+source_file="res://Sprites/HammerBase.png"
+dest_files=["res://.godot/imported/HammerBase.png-815f5fd0b7a2bb739a2d9a9fe9ec204c.ctex"]
 
 [params]
 

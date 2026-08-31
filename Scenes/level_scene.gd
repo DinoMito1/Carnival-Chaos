@@ -61,12 +61,9 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(.5).timeout
 	
-	if Global.minigames_done < 4:
-		Global.minigames_done += 1
-		get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn")
-		#changes scene to the minigame based on how many minigames were played
-	else:
-		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
+	Global.minigames_done += 1
+	get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn")
+	#changes scene to the minigame based on how many minigames were played
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
