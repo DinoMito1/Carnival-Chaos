@@ -15,6 +15,7 @@ Complete all the minigames as fast as you can to get the fastest time
   + Keeps track of your fastest time so you can try to win as quickly as possible
   + A volume slider in settings
   + Custom win and loss screen
+  + Mobile support
   + Sound effects all made by yours truly!
 
 ##
