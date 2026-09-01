@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b5q3ur6moa2i2" path="res://Sprites/HammerTower.png" id="6_ykq01"]
 [ext_resource type="Texture2D" uid="uid://b3mkw8j3apxp2" path="res://Sprites/HammerBell.png" id="7_5l52r"]
 [ext_resource type="Texture2D" uid="uid://cibqadpgtdhxo" path="res://Sprites/HammerBase.png" id="8_5l52r"]
+[ext_resource type="Texture2D" uid="uid://c7kksmebx1eni" path="res://Sprites/HammerHit.png" id="9_oo5rc"]
+[ext_resource type="Texture2D" uid="uid://b1r17nwly7hg4" path="res://Sprites/HammerButtonBase.png" id="9_te8fa"]
 
 [sub_resource type="Animation" id="Animation_te8fa"]
 resource_name = "HammerMove"
@@ -40,22 +42,79 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1075, 266.99997)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [267.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_5l52r")]
+}
+
+[sub_resource type="Animation" id="Animation_0nun1"]
+resource_name = "hammer_swing"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.58, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [267.0, 170.0, 460.0, 480.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_5l52r"), ExtResource("9_oo5rc")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nun1"]
 _data = {
 &"HammerMove": SubResource("Animation_te8fa"),
-&"RESET": SubResource("Animation_oo5rc")
+&"RESET": SubResource("Animation_oo5rc"),
+&"hammer_swing": SubResource("Animation_0nun1")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5l52r"]
-radius = 84.99997
-height = 202.49994
+radius = 62.49997
+height = 155.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oo5rc"]
+radius = 31.0
+height = 140.0
 
 [node name="Node2D" type="Node2D" unique_id=377344023]
 script = ExtResource("1_6fijl")
 
 [node name="HitIcon" type="TextureRect" parent="." unique_id=1091893636]
-visible = false
+modulate = Color(0.96862745, 0.96862745, 0.96862745, 1)
 z_index = 6
 offset_left = 207.0
 offset_top = 93.0
@@ -89,6 +148,7 @@ position = Vector2(589, 76)
 texture = ExtResource("7_5l52r")
 
 [node name="Hammer" type="Sprite2D" parent="." unique_id=1166421382]
+z_index = 1
 position = Vector2(1075, 266.99997)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_5l52r")
@@ -97,11 +157,26 @@ texture = ExtResource("8_5l52r")
 libraries/ = SubResource("AnimationLibrary_0nun1")
 speed_scale = 0.0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Hammer" unique_id=1681747908]
+[node name="StaticBody2D" type="Area2D" parent="Hammer" unique_id=1934431551]
 scale = Vector2(0.99999994, 0.99999994)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer/StaticBody2D" unique_id=1119095227]
-position = Vector2(-67.509, -1.25)
+position = Vector2(-71.25, 16.25)
 rotation = 1.5707964
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("CapsuleShape2D_5l52r")
+
+[node name="Button" type="Sprite2D" parent="." unique_id=1289446634]
+position = Vector2(591, 551)
+texture = ExtResource("9_te8fa")
+
+[node name="Area2D" type="Area2D" parent="Button" unique_id=678384174]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D" unique_id=905008383]
+position = Vector2(-5, -10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_oo5rc")
+
+[connection signal="area_entered" from="Button/Area2D" to="." method="_on_area_2d_area_entered"]
