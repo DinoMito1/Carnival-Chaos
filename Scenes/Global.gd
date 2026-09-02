@@ -7,7 +7,7 @@ var lives = 5
 var lost_prev = false
 var best_time = 999.99
 var time = 0
-var volume = 1
+var volume = 1.6
 
 
 # Called when the node enters the scene tree for the first time.

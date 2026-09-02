@@ -5,11 +5,50 @@
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="2_ofli8"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="3_ofli8"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_kpx3j"]
+[ext_resource type="AudioStream" uid="uid://bhgt7mk06runa" path="res://audio/BellHitRing2.mp3" id="5_ogih7"]
+[ext_resource type="AudioStream" uid="uid://bktlsahmiprt8" path="res://audio/HitTheThingy.mp3" id="6_ogih7"]
 [ext_resource type="Texture2D" uid="uid://b5q3ur6moa2i2" path="res://Sprites/HammerTower.png" id="6_ykq01"]
 [ext_resource type="Texture2D" uid="uid://b3mkw8j3apxp2" path="res://Sprites/HammerBell.png" id="7_5l52r"]
 [ext_resource type="Texture2D" uid="uid://cibqadpgtdhxo" path="res://Sprites/HammerBase.png" id="8_5l52r"]
 [ext_resource type="Texture2D" uid="uid://c7kksmebx1eni" path="res://Sprites/HammerHit.png" id="9_oo5rc"]
 [ext_resource type="Texture2D" uid="uid://b1r17nwly7hg4" path="res://Sprites/HammerButtonBase.png" id="9_te8fa"]
+
+[sub_resource type="Animation" id="Animation_ogih7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(589, 76)]
+}
+
+[sub_resource type="Animation" id="Animation_gymju"]
+resource_name = "bell_shake"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.39999998, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.90000004, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(589, 76), Vector2(584, 76), Vector2(594, 76), Vector2(584, 76), Vector2(589, 76), Vector2(584, 76), Vector2(594, 76), Vector2(584, 76), Vector2(594, 76), Vector2(584, 76), Vector2(594, 76), Vector2(585, 76), Vector2(593, 76), Vector2(585, 76), Vector2(593, 76), Vector2(585, 76), Vector2(593, 76), Vector2(586, 76), Vector2(592, 76), Vector2(587, 76), Vector2(591, 76), Vector2(588, 76), Vector2(590, 76), Vector2(588.5, 76), Vector2(589.5, 76), Vector2(589, 76)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_br4fl"]
+_data = {
+&"RESET": SubResource("Animation_ogih7"),
+&"bell_shake": SubResource("Animation_gymju")
+}
 
 [sub_resource type="Animation" id="Animation_te8fa"]
 resource_name = "HammerMove"
@@ -80,7 +119,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.35, 0.58, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [267.0, 170.0, 460.0, 480.0]
+"values": [267.0, 170.0, 460.0, 470.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -104,7 +143,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5l52r"]
 radius = 62.49997
-height = 155.0
+height = 160.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oo5rc"]
 radius = 31.0
@@ -122,15 +161,25 @@ offset_right = 967.0
 offset_bottom = 279.0
 mouse_filter = 2
 texture = ExtResource("2_28s5m")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="TextureRect" parent="." unique_id=1849832914]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_ofli8")
+metadata/_edit_use_anchors_ = true
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1314333200]
 stream = ExtResource("3_ofli8")
 parameters/looping = true
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=1765552236]
+stream = ExtResource("5_ogih7")
+volume_db = -4.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=2078864988]
+stream = ExtResource("6_ogih7")
+volume_db = -8.0
 
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_kpx3j")]
 position = Vector2(22, -9)
@@ -142,10 +191,14 @@ offset_right = 792.0
 offset_bottom = 616.0
 scale = Vector2(1, 1.0415959)
 texture = ExtResource("6_ykq01")
+metadata/_edit_use_anchors_ = true
 
 [node name="HammerBell" type="Sprite2D" parent="." unique_id=1264147868]
 position = Vector2(589, 76)
 texture = ExtResource("7_5l52r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HammerBell" unique_id=2076453895]
+libraries/ = SubResource("AnimationLibrary_br4fl")
 
 [node name="Hammer" type="Sprite2D" parent="." unique_id=1166421382]
 z_index = 1
@@ -162,7 +215,7 @@ scale = Vector2(0.99999994, 0.99999994)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer/StaticBody2D" unique_id=1119095227]
-position = Vector2(-71.25, 16.25)
+position = Vector2(-71.25, 22.5)
 rotation = 1.5707964
 scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("CapsuleShape2D_5l52r")

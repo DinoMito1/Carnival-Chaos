@@ -92,7 +92,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="SelectSound" type="AudioStreamPlayer2D" parent="." unique_id=1902191962]
 stream = ExtResource("6_12m1t")
-volume_db = 15.0
+volume_db = 12.0
 pitch_scale = 0.8
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

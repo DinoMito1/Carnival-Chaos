@@ -53,6 +53,16 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	#when hammer collides with button
 	won = true
+	$TimeTickingSound.stop()
+	$HitSound.play()
 	$Button.texture = buttonHit1
-	await get_tree().create_timer(.2 ).timeout
+	await get_tree().create_timer(.15 ).timeout
+	$HammerBell/AnimationPlayer.play("bell_shake")
+	$WinSound.play()
 	$Button.texture = buttonHit2
+	
+	await get_tree().create_timer(1.8).timeout
+	if Global.minigames_done == 5:
+		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
