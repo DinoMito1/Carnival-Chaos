@@ -21,7 +21,7 @@ func _ready() -> void:
 	await $ThemedTimer.Timer(4)
 	
 	$TimeTickingSound.stop()
-	if won == false or swung == false:
+	if won == false and swung == false:
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		var pos = $Hammer.position
 		$Hammer/AnimationPlayer.stop()
 		$Hammer.position = pos
-		$Hammer/AnimationPlayer.play("hammer_swing")
+		$Hammer/AnimationPlayer.play("hammer_swing2")
 		await get_tree().create_timer(.9).timeout
 		
 		if won == false: # if you missed the button
@@ -61,7 +61,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	$WinSound.play()
 	$Button.texture = buttonHit2
 	
-	await get_tree().create_timer(1.8).timeout
+	await get_tree().create_timer(1.5).timeout
 	if Global.minigames_done == 5:
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 	else:
