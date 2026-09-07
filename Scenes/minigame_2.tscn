@@ -68,6 +68,21 @@ script = ExtResource("4_wu6l1")
 z_index = -1
 position = Vector2(465, -11)
 
+[node name="WinText" type="RichTextLabel" parent="." unique_id=1881165920]
+modulate = Color(1, 1, 1, 0)
+z_index = -1
+offset_left = 401.0
+offset_top = 19.0
+offset_right = 673.1163
+offset_bottom = 125.70212
+scale = Vector2(1.0657209, 1.0777669)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.99965185, 0.12596777, 0.087627284, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/normal_font_size = 60
+text = "You Win!"
+
 [node name="HitIcon" type="TextureRect" parent="." unique_id=376316116]
 z_index = 6
 offset_left = 207.0

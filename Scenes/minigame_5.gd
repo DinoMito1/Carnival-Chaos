@@ -18,7 +18,7 @@ func _ready() -> void:
 	var animSpeedTween = get_tree().create_tween()
 	animSpeedTween.tween_property($Hammer/AnimationPlayer, "speed_scale", 1, .5)
 	
-	await $ThemedTimer.Timer(4)
+	await $ThemedTimer.Timer(4.5)
 	
 	$TimeTickingSound.stop()
 	if won == false and swung == false:
@@ -56,6 +56,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	$TimeTickingSound.stop()
 	$HitSound.play()
 	$Button.texture = buttonHit1
+	$ThingyIdk/AnimationPlayer.play("boing")
 	await get_tree().create_timer(.15 ).timeout
 	$HammerBell/AnimationPlayer.play("bell_shake")
 	$WinSound.play()

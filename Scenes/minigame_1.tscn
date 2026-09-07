@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://83xq6hypkg2r" path="res://audio/idk_selectsound.mp3" id="11_vj06g"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="12_o14ck"]
 [ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="13_4andj"]
-[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Scenes/MobileControlLeft.png" id="14_rmdn4"]
+[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Sprites/MobileControlLeft.png" id="14_rmdn4"]
 [ext_resource type="BitMap" uid="uid://d28cqomwahn0q" path="res://Sprites/MobileControlLeftMask.bmp" id="15_6dxw8"]
 [ext_resource type="Texture2D" uid="uid://chky6pa6yt8hl" path="res://Sprites/MobileControlUp.png" id="16_6eixn"]
 [ext_resource type="BitMap" uid="uid://rxbjcser7pop" path="res://Sprites/MobileControlTopMask.bmp" id="17_bd6ri"]

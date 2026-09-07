@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b28j3m4n1mc23"]
 
 [ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="1_vr12h"]
-[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Scenes/MobileControlLeft.png" id="2_j64t6"]
+[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Sprites/MobileControlLeft.png" id="2_j64t6"]
 [ext_resource type="BitMap" uid="uid://d28cqomwahn0q" path="res://Sprites/MobileControlLeftMask.bmp" id="3_m04wo"]
 [ext_resource type="Texture2D" uid="uid://chky6pa6yt8hl" path="res://Sprites/MobileControlUp.png" id="4_m04wo"]
 [ext_resource type="Texture2D" uid="uid://cgin4t8v6051b" path="res://Sprites/MobileControlBottom.png" id="5_5kid7"]

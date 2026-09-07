@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw8kcw6iubdko"
-path="res://.godot/imported/MobileControlLeft.png-324a321ac3ac2f66157121efdc96006b.ctex"
+uid="uid://b4rsan4u7xkrr"
+path="res://.godot/imported/waterGunSplash2.png-ec299b72e102221fe89c0e4af3a4b39b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/MobileControlLeft.png"
-dest_files=["res://.godot/imported/MobileControlLeft.png-324a321ac3ac2f66157121efdc96006b.ctex"]
+source_file="res://Sprites/waterGunSplash2.png"
+dest_files=["res://.godot/imported/waterGunSplash2.png-ec299b72e102221fe89c0e4af3a4b39b.ctex"]
 
 [params]
 

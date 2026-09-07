@@ -1,5 +1,6 @@
 extends Node2D
 @onready var themed_timer: Node2D = $ThemedTimer
+#@onready var won = false
 
 var buttons_pressed := 0
 var timer_end = false
@@ -13,12 +14,22 @@ func _ready() -> void:
 	$TimeTickingSound.play()
 	
 	await themed_timer.Timer(6.0)
+	
+	#if won == false:
 	timer_end = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if buttons_pressed == 5:
+		buttons_pressed = 6 # so this if statement doesnt happen every frame
+		#won = true
+		#var tween1 = get_tree().create_tween()
+		#tween1.tween_property($ThemedTimer, "modulate:a", 0, .15)
+		#await get_tree().create_timer(.2).timeout
+		#var tween2 = get_tree().create_tween()
+		#tween2.tween_property($WinText, "modulate:a", 255, 11.3)
+		#await get_tree().create_timer(.4).timeout
 		
 		Global.lost_prev = false
 		if Global.minigames_done == 5:
