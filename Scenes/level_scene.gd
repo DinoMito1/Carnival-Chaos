@@ -68,8 +68,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.lost_prev == true:
+		Global.lost_prev = false
+		$LoseSound.play()
 		var ticketFadeTween = get_tree().create_tween()
-		match Global.lives: # makes the tickets invisible as you lose lives
+		match Global.lives: # makes the tickets dissapear as you lose lives
 			4:
 				Ticket5.texture = lostTicket
 				ticketFadeTween.tween_property($TicketContainer/Ticket5, "modulate:a", 0, 1)

@@ -310,6 +310,8 @@ _data = {
 &"boing": SubResource("Animation_io7vq")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gymju"]
+
 [node name="Node2D" type="Node2D" unique_id=377344023]
 script = ExtResource("1_6fijl")
 
@@ -408,4 +410,12 @@ texture = ExtResource("13_gymju")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ThingyIdk" unique_id=1198721518]
 libraries/ = SubResource("AnimationLibrary_f067r")
 
+[node name="MobileButton" type="TouchScreenButton" parent="." unique_id=1245203025]
+z_index = 10
+position = Vector2(595.99994, 336)
+scale = Vector2(65.42699, -37.46935)
+shape = SubResource("RectangleShape2D_gymju")
+action = "spacebar"
+
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
 [connection signal="area_entered" from="Button/Area2D" to="." method="_on_area_2d_area_entered"]
