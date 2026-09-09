@@ -316,7 +316,6 @@ _data = {
 script = ExtResource("1_6fijl")
 
 [node name="HitIcon" type="TextureRect" parent="." unique_id=1091893636]
-visible = false
 modulate = Color(0.96862745, 0.96862745, 0.96862745, 1)
 z_index = 6
 offset_left = 207.0

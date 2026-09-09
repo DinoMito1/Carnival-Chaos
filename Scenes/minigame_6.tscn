@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b5175fpk3ospc"]
+
+[ext_resource type="Script" uid="uid://cs757i7c2yx0u" path="res://Scenes/minigame_6.gd" id="1_xuuwq"]
+[ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="2_35vpf"]
+[ext_resource type="AudioStream" uid="uid://bp5uha026y786" path="res://audio/jump_sfx.mp3" id="3_4pllv"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="4_ynpkl"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_jbb13"]
+[ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="6_ufxbc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ru11"]
+load_path = "res://.godot/imported/lil_guy_idle.png-7bd88fb2fc78599b35ff1cb10d77666d.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cwf1"]
+radius = 7.3333335
+height = 28.0
+
+[node name="Node2D" type="Node2D" unique_id=383339938]
+script = ExtResource("1_xuuwq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1591720154]
+offset_top = 411.0
+offset_right = 1160.0
+offset_bottom = 651.0
+texture = ExtResource("2_35vpf")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1698631131]
+position = Vector2(54, 462)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1704630463]
+position = Vector2(19, -2)
+scale = Vector2(6, 6)
+texture = SubResource("CompressedTexture2D_5ru11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=64657767]
+position = Vector2(19, 5)
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CapsuleShape2D_4cwf1")
+
+[node name="jumpSoundPlayer" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=699001268]
+position = Vector2(19, -2)
+stream = ExtResource("3_4pllv")
+volume_db = 5.0
+pitch_scale = 1.2
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=23475517]
+stream = ExtResource("4_ynpkl")
+parameters/looping = true
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_jbb13")]
+position = Vector2(500, -3)
+
+[node name="JumpIcon" type="TextureRect" parent="." unique_id=134602284]
+modulate = Color(0.96862745, 0.96862745, 0.96862745, 1)
+z_index = 6
+offset_left = 235.0
+offset_top = 120.0
+offset_right = 1194.0
+offset_bottom = 377.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("6_ufxbc")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=465478133]
+offset_left = 474.0
+offset_top = 260.0
+offset_right = 912.0
+offset_bottom = 522.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Sack Race
+"
+
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
