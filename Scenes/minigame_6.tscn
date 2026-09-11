@@ -2,72 +2,172 @@
 
 [ext_resource type="Script" uid="uid://cs757i7c2yx0u" path="res://Scenes/minigame_6.gd" id="1_xuuwq"]
 [ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="2_35vpf"]
-[ext_resource type="AudioStream" uid="uid://bp5uha026y786" path="res://audio/jump_sfx.mp3" id="3_4pllv"]
+[ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="3_4pllv"]
+[ext_resource type="Script" uid="uid://5ui1ypcivkfo" path="res://Scenes/character_body_2d.gd" id="3_35vpf"]
+[ext_resource type="Texture2D" uid="uid://bktams4uvv7p3" path="res://Sprites/pull_icon.png" id="4_xuuwq"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="4_ynpkl"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_jbb13"]
-[ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="6_ufxbc"]
+[ext_resource type="Texture2D" uid="uid://dsn2lta1wf2b" path="res://Sprites/QTE_circle_back.png" id="8_ufxbc"]
+[ext_resource type="Texture2D" uid="uid://bvdua6kfnntou" path="res://Sprites/QTE_circle_zone.png" id="9_5ru11"]
+[ext_resource type="Texture2D" uid="uid://dfu6avxk7estc" path="res://Sprites/QTE_circle_thingy.png" id="10_4cwf1"]
+[ext_resource type="Texture2D" uid="uid://2b567cuwq8vi" path="res://Sprites/QTE_circle_front.png" id="11_5vlbl"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ru11"]
-load_path = "res://.godot/imported/lil_guy_idle.png-7bd88fb2fc78599b35ff1cb10d77666d.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuuwq"]
+size = Vector2(16.851551, 199.27281)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cwf1"]
-radius = 7.3333335
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35vpf"]
+size = Vector2(16.851551, 199.27281)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pllv"]
+size = Vector2(16.851551, 199.27281)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4kkxe"]
+radius = 7.375183
+height = 42.0906
+
+[sub_resource type="Animation" id="Animation_ufxbc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5642563]
+}
+
+[sub_resource type="Animation" id="Animation_5ru11"]
+resource_name = "spinn"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966, 3.141592653589793, 4.712389, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4cwf1"]
+_data = {
+&"RESET": SubResource("Animation_ufxbc"),
+&"spinn": SubResource("Animation_5ru11")
+}
 
 [node name="Node2D" type="Node2D" unique_id=383339938]
 script = ExtResource("1_xuuwq")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1591720154]
-offset_top = 411.0
-offset_right = 1160.0
-offset_bottom = 651.0
-texture = ExtResource("2_35vpf")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1698631131]
-position = Vector2(54, 462)
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1704630463]
-position = Vector2(19, -2)
-scale = Vector2(6, 6)
-texture = SubResource("CompressedTexture2D_5ru11")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=64657767]
-position = Vector2(19, 5)
-scale = Vector2(4.5, 4.5)
-shape = SubResource("CapsuleShape2D_4cwf1")
-
-[node name="jumpSoundPlayer" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=699001268]
-position = Vector2(19, -2)
-stream = ExtResource("3_4pllv")
-volume_db = 5.0
-pitch_scale = 1.2
 
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=23475517]
 stream = ExtResource("4_ynpkl")
 parameters/looping = true
 
-[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_jbb13")]
-position = Vector2(500, -3)
+[node name="BG" type="TextureRect" parent="." unique_id=763956563]
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 1158.0
+offset_bottom = 649.0
+texture = ExtResource("3_4pllv")
 
-[node name="JumpIcon" type="TextureRect" parent="." unique_id=134602284]
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_jbb13")]
+position = Vector2(24, 0)
+
+[node name="PullIcon" type="TextureRect" parent="." unique_id=134602284]
 modulate = Color(0.96862745, 0.96862745, 0.96862745, 1)
 z_index = 6
-offset_left = 235.0
-offset_top = 120.0
-offset_right = 1194.0
-offset_bottom = 377.0
+offset_left = 236.0
+offset_top = 40.0
+offset_right = 1195.0
+offset_bottom = 308.0
 scale = Vector2(0.7, 0.7)
 mouse_filter = 2
-texture = ExtResource("6_ufxbc")
+texture = ExtResource("4_xuuwq")
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=465478133]
-offset_left = 474.0
-offset_top = 260.0
-offset_right = 912.0
-offset_bottom = 522.0
-theme_override_font_sizes/normal_font_size = 100
-text = "Sack Race
-"
+[node name="Ground" type="TextureRect" parent="." unique_id=1591720154]
+offset_left = -66.0
+offset_top = 273.0
+offset_right = 1260.0
+offset_bottom = 666.0
+texture = ExtResource("2_35vpf")
 
+[node name="Rope" type="CharacterBody2D" parent="." unique_id=40793399]
+position = Vector2(593, 416)
+scale = Vector2(8.3671875, 0.6875)
+script = ExtResource("3_35vpf")
+
+[node name="RopeSprite" type="Sprite2D" parent="Rope" unique_id=824382849]
+position = Vector2(-0.65732956, 0)
+scale = Vector2(0.7889823, 0.99999994)
+texture = ExtResource("2_35vpf")
+
+[node name="RopeHitbox" type="CollisionShape2D" parent="Rope" unique_id=1488598783]
+position = Vector2(-0.29878998, -9.45459)
+scale = Vector2(0.99999917, 0.99999976)
+shape = SubResource("RectangleShape2D_xuuwq")
+
+[node name="winZone" type="Area2D" parent="." unique_id=1660003284]
+monitorable = false
+metadata/tung = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winZone" unique_id=689801081]
+position = Vector2(974, 378)
+shape = SubResource("RectangleShape2D_35vpf")
+
+[node name="loseZone" type="Area2D" parent="." unique_id=1088277781]
+position = Vector2(209, 369)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loseZone" unique_id=348791977]
+shape = SubResource("RectangleShape2D_4pllv")
+
+[node name="QTE circle" type="Sprite2D" parent="." unique_id=351475681]
+position = Vector2(612, 165)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_ufxbc")
+
+[node name="QTE zone" type="Sprite2D" parent="QTE circle" unique_id=1492404878]
+position = Vector2(0, -3)
+texture = ExtResource("9_5ru11")
+offset = Vector2(-6, 2)
+
+[node name="Area2D" type="Area2D" parent="QTE circle/QTE zone" unique_id=770205182]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="QTE circle/QTE zone/Area2D" unique_id=38662287]
+polygon = PackedVector2Array(-1, 1, 14, -5, 32, -83, 42, -140, 14, -151, -33, -149, -62, -136, -62, -122, -52, -97, -22, -16, -10, -1)
+
+[node name="QTE cursor" type="Sprite2D" parent="QTE circle" unique_id=271304970]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -3)
+rotation = -1.5642563
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("10_4cwf1")
+
+[node name="Area2D" type="Area2D" parent="QTE circle/QTE cursor" unique_id=461509111]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="QTE circle/QTE cursor/Area2D" unique_id=1643087957]
+position = Vector2(114.70685, -4.960812)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4kkxe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="QTE circle/QTE cursor" unique_id=806329577]
+libraries/ = SubResource("AnimationLibrary_4cwf1")
+
+[node name="QTE front" type="Sprite2D" parent="QTE circle" unique_id=650575098]
+position = Vector2(1.5258789e-05, 0)
+texture = ExtResource("11_5vlbl")
+
+[connection signal="bad_hit" from="." to="Rope" method="_on_node_2d_bad_hit"]
+[connection signal="good_hit" from="." to="Rope" method="_on_node_2d_good_hit"]
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
+[connection signal="body_shape_entered" from="winZone" to="." method="_on_win_zone_body_shape_entered"]
+[connection signal="body_shape_entered" from="loseZone" to="." method="_on_lose_zone_body_shape_entered"]
+[connection signal="area_entered" from="QTE circle/QTE zone/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="QTE circle/QTE zone/Area2D" to="." method="_on_area_2d_area_exited"]

@@ -57,8 +57,7 @@ func _ready() -> void:
 	elif Global.minigames_done == 4:
 		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
 	elif Global.minigames_done == 5:
-		pass
-		#tweenOut.tween_property($HitIcon, "modulate:a", 1, .25) #PUT JUMP ICON
+		tweenOut.tween_property($PullIcon, "modulate:a", 1, .25)
 	
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")

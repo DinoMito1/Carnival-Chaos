@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="8_c8y3w"]
 [ext_resource type="Texture2D" uid="uid://df72puvhful1e" path="res://Sprites/SprayIcon.png" id="9_66tft"]
 [ext_resource type="AudioStream" uid="uid://ckpsb8ibxqqb0" path="res://audio/sad_awwww.mp3" id="11_njln1"]
+[ext_resource type="Texture2D" uid="uid://bktams4uvv7p3" path="res://Sprites/pull_icon.png" id="11_nwlgb"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
 script = ExtResource("1_c7xwe")
@@ -155,6 +156,18 @@ offset_bottom = 314.0
 rotation = -0.026796151
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("9_66tft")
+
+[node name="PullIcon" type="TextureRect" parent="." unique_id=948741569]
+modulate = Color(0.96862745, 0.96862745, 0.96862745, 0)
+z_index = 6
+offset_left = 236.0
+offset_top = 40.0
+offset_right = 1195.0
+offset_bottom = 308.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("11_nwlgb")
+metadata/_edit_use_anchors_ = true
 
 [node name="LoseSound" type="AudioStreamPlayer2D" parent="." unique_id=895213579]
 stream = ExtResource("11_njln1")
