@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_node_2d_good_hit() -> void:
-	velocity.x += 350
+	velocity.x += 400
 
 
 func _on_node_2d_bad_hit() -> void:

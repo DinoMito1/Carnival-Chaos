@@ -9,16 +9,16 @@ func _ready() -> void:
 	$TimeTickingSound.play()
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property($PullIcon, "modulate:a", 0, 2)
-	$"QTE circle/QTE zone".rotation = randf_range(-180,180)
+	tween.tween_property($PullIcon, "modulate:a", 0, 2) #fades out icon
+	$"QTE circle/QTE zone".rotation = randi_range(-180,180)
 	if randi_range(0,1) == 1:
-		$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(.7,1.3)
+		$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(-.7,-1.3)
 	else:
 		$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(.7,1.3)
-	$"QTE circle/QTE cursor/AnimationPlayer".seek(randf_range(0,1))
+	$"QTE circle/QTE cursor/AnimationPlayer".seek(randf_range(0,1)) # starts at random point at animation
 	$"QTE circle/QTE cursor/AnimationPlayer".play("spinn")
 	
-	await $ThemedTimer.Timer(15)
+	await $ThemedTimer.Timer(16)
 	
 	$TimeTickingSound.stop()
 	if won == false:
@@ -33,18 +33,24 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("spacebar"):
+		var hitTween
+		if hitTween:
+			hitTween.kill()
+		hitTween = get_tree().create_tween()
 		if inQTEzone == true:
+			$"QTE circle/Color Flash".modulate = Color(0.6, 0.898, 0.314, 1.0) 
+			hitTween.tween_property($"QTE circle/Color Flash", "modulate:a", 0, .2)
 			emit_signal("good_hit")
-			#ANIMATE GOOD HIT WITH NICE SOUNDS AND WHITE FLASH
 		else:
+			$"QTE circle/Color Flash".modulate = Color(0.535, 0.0, 0.072, 1.0)
+			hitTween.tween_property($"QTE circle/Color Flash", "modulate:a", 0, .2)
 			emit_signal("bad_hit")
-			#ANIMATE BAD HIT WITH BAD SOUNDS AND RED FLASH
-		$"QTE circle/QTE zone".rotation = randf_range(-180,180)
+			
+		$"QTE circle/QTE zone".rotation = randi_range(-180,180)
 		if randi_range(0,1) == 1:
-			$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(-.5,-1.4)
+			$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(-.7,-1.3)
 		else:
-			$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(.5,1.4)
-			$"QTE circle/QTE cursor/AnimationPlayer".seek(randf_range(0,1))
+			$"QTE circle/QTE cursor/AnimationPlayer".speed_scale = randf_range(.7,1.3)
 			$"QTE circle/QTE cursor/AnimationPlayer".play("spinn")
 		
 	

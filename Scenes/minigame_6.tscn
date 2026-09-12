@@ -11,9 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bvdua6kfnntou" path="res://Sprites/QTE_circle_zone.png" id="9_5ru11"]
 [ext_resource type="Texture2D" uid="uid://dfu6avxk7estc" path="res://Sprites/QTE_circle_thingy.png" id="10_4cwf1"]
 [ext_resource type="Texture2D" uid="uid://2b567cuwq8vi" path="res://Sprites/QTE_circle_front.png" id="11_5vlbl"]
+[ext_resource type="Texture2D" uid="uid://dc0eq78ktqlvq" path="res://Sprites/QTE_circle_color.png" id="12_5ru11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuuwq"]
-size = Vector2(16.851551, 199.27281)
+size = Vector2(11.1148615, 199.27281)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35vpf"]
 size = Vector2(16.851551, 199.27281)
@@ -109,8 +110,8 @@ scale = Vector2(0.7889823, 0.99999994)
 texture = ExtResource("2_35vpf")
 
 [node name="RopeHitbox" type="CollisionShape2D" parent="Rope" unique_id=1488598783]
-position = Vector2(-0.29878998, -9.45459)
-scale = Vector2(0.99999917, 0.99999976)
+position = Vector2(0.059761047, -9.45459)
+scale = Vector2(0.99999917, 0.9999997)
 shape = SubResource("RectangleShape2D_xuuwq")
 
 [node name="winZone" type="Area2D" parent="." unique_id=1660003284]
@@ -129,7 +130,7 @@ monitorable = false
 shape = SubResource("RectangleShape2D_4pllv")
 
 [node name="QTE circle" type="Sprite2D" parent="." unique_id=351475681]
-position = Vector2(612, 165)
+position = Vector2(576, 138)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_ufxbc")
 
@@ -139,9 +140,10 @@ texture = ExtResource("9_5ru11")
 offset = Vector2(-6, 2)
 
 [node name="Area2D" type="Area2D" parent="QTE circle/QTE zone" unique_id=770205182]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="QTE circle/QTE zone/Area2D" unique_id=38662287]
-polygon = PackedVector2Array(-1, 1, 14, -5, 32, -83, 42, -140, 14, -151, -33, -149, -62, -136, -62, -122, -52, -97, -22, -16, -10, -1)
+polygon = PackedVector2Array(0, -7, 17.5, -7, 41.25, -106.99999, 45, -139.5, 13.75, -151.99998, -33.75, -150.74998, -63.75, -138.25, -65, -120.74999, -53.75, -93.24999, -22, -16, -17.5, -7)
 
 [node name="QTE cursor" type="Sprite2D" parent="QTE circle" unique_id=271304970]
 modulate = Color(0, 0, 0, 1)
@@ -163,6 +165,11 @@ libraries/ = SubResource("AnimationLibrary_4cwf1")
 [node name="QTE front" type="Sprite2D" parent="QTE circle" unique_id=650575098]
 position = Vector2(1.5258789e-05, 0)
 texture = ExtResource("11_5vlbl")
+
+[node name="Color Flash" type="Sprite2D" parent="QTE circle" unique_id=1752576522]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -9.536743e-07)
+texture = ExtResource("12_5ru11")
 
 [connection signal="bad_hit" from="." to="Rope" method="_on_node_2d_bad_hit"]
 [connection signal="good_hit" from="." to="Rope" method="_on_node_2d_good_hit"]
