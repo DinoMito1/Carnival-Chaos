@@ -32,7 +32,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("spacebar"):
+	if Input.is_action_just_pressed("spacebar") and won == false:
 		var hitTween
 		if hitTween:
 			hitTween.kill()
@@ -41,10 +41,12 @@ func _process(delta: float) -> void:
 			$"QTE circle/Color Flash".modulate = Color(0.6, 0.898, 0.314, 1.0) 
 			hitTween.tween_property($"QTE circle/Color Flash", "modulate:a", 0, .2)
 			emit_signal("good_hit")
+			$GoodSound.play()
 		else:
 			$"QTE circle/Color Flash".modulate = Color(0.535, 0.0, 0.072, 1.0)
 			hitTween.tween_property($"QTE circle/Color Flash", "modulate:a", 0, .2)
 			emit_signal("bad_hit")
+			$BadSound.play()
 			
 		$"QTE circle/QTE zone".rotation = randi_range(-180,180)
 		if randi_range(0,1) == 1:
@@ -73,6 +75,12 @@ func _on_win_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_ind
 	won = true
 	$TimeTickingSound.stop()
 	#do winning stuff
+	var winTween = get_tree().create_tween()
+	winTween.tween_property($"QTE circle", "modulate:a", 0, .2)
+	await get_tree().create_timer(.2).timeout
+	$"QTE circle".hide()
+	await get_tree().create_timer(.8).timeout
+	
 	if Global.minigames_done == 6:
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 	else:

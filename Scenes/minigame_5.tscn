@@ -339,11 +339,11 @@ parameters/looping = true
 
 [node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=1765552236]
 stream = ExtResource("5_ogih7")
-volume_db = -3.0
+volume_db = -7.0
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=2078864988]
 stream = ExtResource("6_ogih7")
-volume_db = -8.0
+volume_db = -11.0
 
 [node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("5_kpx3j")]
 position = Vector2(22, -9)

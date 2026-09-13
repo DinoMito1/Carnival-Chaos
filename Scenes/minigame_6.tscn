@@ -3,18 +3,21 @@
 [ext_resource type="Script" uid="uid://cs757i7c2yx0u" path="res://Scenes/minigame_6.gd" id="1_xuuwq"]
 [ext_resource type="Texture2D" uid="uid://cml5xhvslpdk1" path="res://Sprites/icon.svg" id="2_35vpf"]
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="3_4pllv"]
+[ext_resource type="AudioStream" uid="uid://83xq6hypkg2r" path="res://audio/idk_selectsound.mp3" id="3_5vlbl"]
 [ext_resource type="Script" uid="uid://5ui1ypcivkfo" path="res://Scenes/character_body_2d.gd" id="3_35vpf"]
+[ext_resource type="AudioStream" uid="uid://c8be1xxorgcsj" path="res://audio/mole_hurt_sfx.mp3" id="4_4kkxe"]
 [ext_resource type="Texture2D" uid="uid://bktams4uvv7p3" path="res://Sprites/pull_icon.png" id="4_xuuwq"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="4_ynpkl"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="5_jbb13"]
 [ext_resource type="Texture2D" uid="uid://dsn2lta1wf2b" path="res://Sprites/QTE_circle_back.png" id="8_ufxbc"]
 [ext_resource type="Texture2D" uid="uid://bvdua6kfnntou" path="res://Sprites/QTE_circle_zone.png" id="9_5ru11"]
 [ext_resource type="Texture2D" uid="uid://dfu6avxk7estc" path="res://Sprites/QTE_circle_thingy.png" id="10_4cwf1"]
+[ext_resource type="Texture2D" uid="uid://cvf653r4jh6y7" path="res://Sprites/tugofwarRope.png" id="10_4kkxe"]
 [ext_resource type="Texture2D" uid="uid://2b567cuwq8vi" path="res://Sprites/QTE_circle_front.png" id="11_5vlbl"]
 [ext_resource type="Texture2D" uid="uid://dc0eq78ktqlvq" path="res://Sprites/QTE_circle_color.png" id="12_5ru11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuuwq"]
-size = Vector2(11.1148615, 199.27281)
+size = Vector2(6.4537916, 199.27281)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35vpf"]
 size = Vector2(16.851551, 199.27281)
@@ -70,6 +73,12 @@ script = ExtResource("1_xuuwq")
 stream = ExtResource("4_ynpkl")
 parameters/looping = true
 
+[node name="GoodSound" type="AudioStreamPlayer2D" parent="." unique_id=1727448431]
+stream = ExtResource("3_5vlbl")
+
+[node name="BadSound" type="AudioStreamPlayer2D" parent="." unique_id=476009499]
+stream = ExtResource("4_4kkxe")
+
 [node name="BG" type="TextureRect" parent="." unique_id=763956563]
 offset_left = -2.0
 offset_top = -1.0
@@ -104,13 +113,13 @@ position = Vector2(593, 416)
 scale = Vector2(8.3671875, 0.6875)
 script = ExtResource("3_35vpf")
 
-[node name="RopeSprite" type="Sprite2D" parent="Rope" unique_id=824382849]
-position = Vector2(-0.65732956, 0)
-scale = Vector2(0.7889823, 0.99999994)
-texture = ExtResource("2_35vpf")
+[node name="RopeSprite" type="Sprite2D" parent="Rope" unique_id=210377359]
+position = Vector2(-1.4341812, 21.818115)
+scale = Vector2(0.119514465, 1.4545454)
+texture = ExtResource("10_4kkxe")
 
 [node name="RopeHitbox" type="CollisionShape2D" parent="Rope" unique_id=1488598783]
-position = Vector2(0.059761047, -9.45459)
+position = Vector2(1.3146591, -5.8181763)
 scale = Vector2(0.99999917, 0.9999997)
 shape = SubResource("RectangleShape2D_xuuwq")
 
@@ -119,7 +128,7 @@ monitorable = false
 metadata/tung = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="winZone" unique_id=689801081]
-position = Vector2(974, 378)
+position = Vector2(928, 381)
 shape = SubResource("RectangleShape2D_35vpf")
 
 [node name="loseZone" type="Area2D" parent="." unique_id=1088277781]
@@ -127,6 +136,7 @@ position = Vector2(209, 369)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="loseZone" unique_id=348791977]
+position = Vector2(52, -1)
 shape = SubResource("RectangleShape2D_4pllv")
 
 [node name="QTE circle" type="Sprite2D" parent="." unique_id=351475681]
@@ -175,6 +185,8 @@ texture = ExtResource("12_5ru11")
 [connection signal="good_hit" from="." to="Rope" method="_on_node_2d_good_hit"]
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
 [connection signal="body_shape_entered" from="winZone" to="." method="_on_win_zone_body_shape_entered"]
+[connection signal="body_shape_entered" from="winZone" to="Rope" method="_on_win_zone_body_shape_entered"]
 [connection signal="body_shape_entered" from="loseZone" to="." method="_on_lose_zone_body_shape_entered"]
+[connection signal="body_shape_entered" from="loseZone" to="Rope" method="_on_lose_zone_body_shape_entered"]
 [connection signal="area_entered" from="QTE circle/QTE zone/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="QTE circle/QTE zone/Area2D" to="." method="_on_area_2d_area_exited"]
