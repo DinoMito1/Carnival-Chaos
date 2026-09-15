@@ -25,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		$jumpSoundPlayer.pitch_scale = randf_range(1.1, 1.4)
 		$jumpSoundPlayer.play()
+		$"../MobileArrowControl/MobileUp".modulate = Color(.7,.7,.7,1)
 
 	# Get the input direction and handle the movement/deceleration.
 

@@ -3,6 +3,8 @@ extends Node2D
 @onready var won = false
 var coins_collected = 0
 var timer_end = false
+var white = Color(1,1,1,1)
+var grayed = Color(.7,.7,.7,1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,6 +38,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$MobileArrowControl/MobileUp.modulate = white
+	$MobileArrowControl/MobileBottom.modulate = white
+	$MobileArrowControl/MobileLeft.modulate = white
+	$MobileArrowControl/MobileRight.modulate = white
+	
+	if Input.is_action_pressed("ui_up"):
+		$MobileArrowControl/MobileUp.modulate = grayed
+	if Input.is_action_pressed("ui_down"):
+		$MobileArrowControl/MobileBottom.modulate = grayed
+	if Input.is_action_pressed("ui_left"):
+		$MobileArrowControl/MobileLeft.modulate = grayed
+	if Input.is_action_pressed("ui_right"):
+		$MobileArrowControl/MobileRight.modulate = grayed
 	
 	if coins_collected == 3:
 		won = true
@@ -47,6 +62,7 @@ func _process(delta: float) -> void:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+
 
 func coin_collect() -> void:
 	coins_collected += 1

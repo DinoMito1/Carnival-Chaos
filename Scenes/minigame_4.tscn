@@ -269,7 +269,7 @@ texture = ExtResource("15_m8ta0")
 [node name="MobileArrowControl" type="Sprite2D" parent="." unique_id=1063080365]
 self_modulate = Color(1, 1, 1, 0.3137255)
 z_index = 5
-position = Vector2(198, 468.99994)
+position = Vector2(227.99998, 491.99997)
 scale = Vector2(1.3359966, 1.3359966)
 texture = ExtResource("20_j0k2e")
 
@@ -281,31 +281,39 @@ bitmask = ExtResource("22_35bil")
 action = "ui_left"
 metadata/_edit_use_anchors_ = true
 
-[node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1118901632]
+[node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=831700152]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-83.83252, -138.47339)
-rotation = 0.022965576
-texture_normal = ExtResource("23_hj8jm")
-bitmask = ExtResource("24_rytk7")
-action = "ui_up"
+position = Vector2(-18.712616, -72.60495)
+rotation = 0.022965575
+scale = Vector2(1.0000001, 1.0000001)
+texture_normal = ExtResource("27_1xe7f")
+bitmask = ExtResource("28_mbqm0")
+action = "ui_right"
 metadata/_edit_use_anchors_ = true
+
+[node name="MobileArrowControl" type="Sprite2D" parent="MobileArrowControl" unique_id=246866603]
+self_modulate = Color(1, 1, 1, 0.3137255)
+z_index = 5
+position = Vector2(486.2704, 8.982112)
+texture = ExtResource("20_j0k2e")
 
 [node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=808099088]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-83.83253, -18.712597)
+position = Vector2(402.4377, -9.73052)
 rotation = 0.022965576
 texture_normal = ExtResource("25_4weqp")
 bitmask = ExtResource("26_rjv4k")
 action = "ui_down"
 metadata/_edit_use_anchors_ = true
 
-[node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=831700152]
+[node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1118901632]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-18.712608, -72.60494)
-rotation = 0.022965576
-texture_normal = ExtResource("27_1xe7f")
-bitmask = ExtResource("28_mbqm0")
-action = "ui_right"
+position = Vector2(402.43784, -129.49132)
+rotation = 0.022965575
+scale = Vector2(1.0000001, 1.0000001)
+texture_normal = ExtResource("23_hj8jm")
+bitmask = ExtResource("24_rytk7")
+action = "ui_up"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]

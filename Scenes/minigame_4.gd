@@ -21,11 +21,15 @@ extends Node2D
 @onready var meterFill10 = preload("res://Sprites/waterMeter10.png")
 @onready var meterFill11 = preload("res://Sprites/waterMeter11.png")
 
+var white = Color(1,1,1,1)
+var grayed = Color(.7,.7,.7,1) 
+#colors are for mobile controls darkening when pressed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$TimeTickingSound.play()
 	$Target/AnimationPlayer.play("TargetTrackFollow")
+	#$Target/AnimationPlayer.seek(randi_range(0,10))
 	$WaterHitPart/AnimationPlayer.play("waterGunSplash")
 	
 	var tween = get_tree().create_tween()
@@ -56,6 +60,23 @@ func _process(delta: float) -> void:
 	$WaterJet.look_at($WaterHitPart.position)
 	$WaterJet.rotation_degrees += 90
 	var waterPos = $WaterHitPart.position
+	
+	
+	
+	$MobileArrowControl/MobileUp.modulate = white
+	$MobileArrowControl/MobileBottom.modulate = white
+	$MobileArrowControl/MobileLeft.modulate = white
+	$MobileArrowControl/MobileRight.modulate = white
+	
+	if Input.is_action_pressed("ui_up"):
+		$MobileArrowControl/MobileUp.modulate = grayed
+	if Input.is_action_pressed("ui_down"):
+		$MobileArrowControl/MobileBottom.modulate = grayed
+	if Input.is_action_pressed("ui_left"):
+		$MobileArrowControl/MobileLeft.modulate = grayed
+	if Input.is_action_pressed("ui_right"):
+		$MobileArrowControl/MobileRight.modulate = grayed
+	
 	#576 x is screen center 648 y is screen bottom
 	#if waterPos[0] < 476:
 		#$WaterGun.texture = left

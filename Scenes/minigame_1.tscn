@@ -228,7 +228,7 @@ position = Vector2(619, 13.5)
 shape = SubResource("RectangleShape2D_jmcek")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=1972271680]
-position = Vector2(173, 330)
+position = Vector2(158, 330)
 scale = Vector2(0.99626106, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Platform4" unique_id=1669487436]
@@ -330,8 +330,8 @@ stream = ExtResource("12_o14ck")
 [node name="MobileArrowControl" type="Sprite2D" parent="." unique_id=170776007]
 self_modulate = Color(1, 1, 1, 0.3137255)
 z_index = 5
-position = Vector2(156.99998, 422.99997)
-scale = Vector2(1.3359966, 1.3359966)
+position = Vector2(214, 445)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("13_4andj")
 
 [node name="MobileLeft" type="TouchScreenButton" parent="MobileArrowControl" unique_id=552415547]
@@ -342,31 +342,39 @@ bitmask = ExtResource("15_6dxw8")
 action = "ui_left"
 metadata/_edit_use_anchors_ = true
 
-[node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1093699646]
+[node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=51729500]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-83.83252, -138.47339)
+position = Vector2(-18.7126, -72.60495)
+rotation = 0.022965576
+texture_normal = ExtResource("20_ik7qa")
+bitmask = ExtResource("21_la0wu")
+action = "ui_right"
+metadata/_edit_use_anchors_ = true
+
+[node name="MobileArrowControl2" type="Sprite2D" parent="MobileArrowControl" unique_id=379992091]
+self_modulate = Color(1, 1, 1, 0.3137255)
+z_index = 5
+position = Vector2(611, 9.382485)
+texture = ExtResource("13_4andj")
+
+[node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1729909216]
+self_modulate = Color(1, 1, 1, 0.78431374)
+z_index = 5
+position = Vector2(527.1675, -129.0909)
 rotation = 0.022965576
 texture_normal = ExtResource("16_6eixn")
 bitmask = ExtResource("17_bd6ri")
 action = "ui_up"
 metadata/_edit_use_anchors_ = true
 
-[node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=986369127]
+[node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=847715441]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-83.83253, -18.712597)
+z_index = 5
+position = Vector2(527.1675, -9.330099)
 rotation = 0.022965576
 texture_normal = ExtResource("18_g8u17")
 bitmask = ExtResource("19_r6gid")
 action = "ui_down"
-metadata/_edit_use_anchors_ = true
-
-[node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=51729500]
-self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-18.712608, -72.60494)
-rotation = 0.022965576
-texture_normal = ExtResource("20_ik7qa")
-bitmask = ExtResource("21_la0wu")
-action = "ui_right"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="coin_collected" from="Coin" to="." method="coin_collect"]
