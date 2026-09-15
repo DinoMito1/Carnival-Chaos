@@ -269,7 +269,7 @@ texture = ExtResource("15_m8ta0")
 [node name="MobileArrowControl" type="Sprite2D" parent="." unique_id=1063080365]
 self_modulate = Color(1, 1, 1, 0.3137255)
 z_index = 5
-position = Vector2(227.99998, 491.99997)
+position = Vector2(170, 486.99997)
 scale = Vector2(1.3359966, 1.3359966)
 texture = ExtResource("20_j0k2e")
 
@@ -294,12 +294,12 @@ metadata/_edit_use_anchors_ = true
 [node name="MobileArrowControl" type="Sprite2D" parent="MobileArrowControl" unique_id=246866603]
 self_modulate = Color(1, 1, 1, 0.3137255)
 z_index = 5
-position = Vector2(486.2704, 8.982112)
+position = Vector2(615.7617, 5.2452087e-05)
 texture = ExtResource("20_j0k2e")
 
 [node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=808099088]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(402.4377, -9.73052)
+position = Vector2(531.9291, -18.712578)
 rotation = 0.022965576
 texture_normal = ExtResource("25_4weqp")
 bitmask = ExtResource("26_rjv4k")
@@ -308,7 +308,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1118901632]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(402.43784, -129.49132)
+position = Vector2(531.9292, -138.47337)
 rotation = 0.022965575
 scale = Vector2(1.0000001, 1.0000001)
 texture_normal = ExtResource("23_hj8jm")
