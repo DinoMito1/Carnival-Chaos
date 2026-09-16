@@ -13,14 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://83xq6hypkg2r" path="res://audio/idk_selectsound.mp3" id="11_vj06g"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="12_o14ck"]
 [ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="13_4andj"]
-[ext_resource type="Texture2D" uid="uid://cw8kcw6iubdko" path="res://Sprites/MobileControlLeft.png" id="14_rmdn4"]
-[ext_resource type="BitMap" uid="uid://d28cqomwahn0q" path="res://Sprites/MobileControlLeftMask.bmp" id="15_6dxw8"]
-[ext_resource type="Texture2D" uid="uid://chky6pa6yt8hl" path="res://Sprites/MobileControlUp.png" id="16_6eixn"]
-[ext_resource type="BitMap" uid="uid://rxbjcser7pop" path="res://Sprites/MobileControlTopMask.bmp" id="17_bd6ri"]
-[ext_resource type="Texture2D" uid="uid://cgin4t8v6051b" path="res://Sprites/MobileControlBottom.png" id="18_g8u17"]
-[ext_resource type="BitMap" uid="uid://c8enk5m72861r" path="res://Sprites/MobileControlBottomMask.bmp" id="19_r6gid"]
-[ext_resource type="Texture2D" uid="uid://ciq1mcr3l0yqp" path="res://Sprites/MobileControlRight.png" id="20_ik7qa"]
-[ext_resource type="BitMap" uid="uid://f5j6chd6kt0d" path="res://Sprites/MobileControlRightMask.bmp" id="21_la0wu"]
+[ext_resource type="Texture2D" uid="uid://bkqnlsfkau5fk" path="res://Sprites/newMobileLeft.png" id="14_kllcc"]
+[ext_resource type="Texture2D" uid="uid://fvvkt1mmwgsa" path="res://Sprites/newMobileRight.png" id="15_f12bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6yob"]
 size = Vector2(1158, 63)
@@ -336,18 +330,15 @@ texture = ExtResource("13_4andj")
 
 [node name="MobileLeft" type="TouchScreenButton" parent="MobileArrowControl" unique_id=552415547]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-142.96443, -71.10795)
-texture_normal = ExtResource("14_rmdn4")
-bitmask = ExtResource("15_6dxw8")
+position = Vector2(-121.81818, -103.63636)
+texture_normal = ExtResource("14_kllcc")
 action = "ui_left"
 metadata/_edit_use_anchors_ = true
 
 [node name="MobileRight" type="TouchScreenButton" parent="MobileArrowControl" unique_id=51729500]
 self_modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(-18.7126, -72.60495)
-rotation = 0.022965576
-texture_normal = ExtResource("20_ik7qa")
-bitmask = ExtResource("21_la0wu")
+position = Vector2(-2.7272716, -103.63636)
+texture_normal = ExtResource("15_f12bx")
 action = "ui_right"
 metadata/_edit_use_anchors_ = true
 
@@ -360,20 +351,18 @@ texture = ExtResource("13_4andj")
 [node name="MobileUp" type="TouchScreenButton" parent="MobileArrowControl" unique_id=1729909216]
 self_modulate = Color(1, 1, 1, 0.78431374)
 z_index = 5
-position = Vector2(632.6221, -138.18182)
-rotation = 0.022965576
-texture_normal = ExtResource("16_6eixn")
-bitmask = ExtResource("17_bd6ri")
+position = Vector2(614.5455, 4.545448)
+rotation = -1.5707964
+texture_normal = ExtResource("15_f12bx")
 action = "ui_up"
 metadata/_edit_use_anchors_ = true
 
 [node name="MobileBottom" type="TouchScreenButton" parent="MobileArrowControl" unique_id=847715441]
 self_modulate = Color(1, 1, 1, 0.78431374)
 z_index = 5
-position = Vector2(632.6221, -18.42101)
-rotation = 0.022965576
-texture_normal = ExtResource("18_g8u17")
-bitmask = ExtResource("19_r6gid")
+position = Vector2(616.3636, 118.18182)
+rotation = -1.5707964
+texture_normal = ExtResource("14_kllcc")
 action = "ui_down"
 metadata/_edit_use_anchors_ = true
 

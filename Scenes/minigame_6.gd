@@ -29,7 +29,7 @@ func _ready() -> void:
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
-		if Global.lives >= 0:
+		if Global.lives > 0:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
@@ -102,7 +102,7 @@ func _on_lose_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_in
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
-		if Global.lives >= 0:
+		if Global.lives > 0:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
