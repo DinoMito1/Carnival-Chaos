@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 		
 		Global.lost_prev = false
 		themed_timer.Stop()
-		if Global.minigames_done == 6:
+		if Global.minigames_done == 7:
 			get_tree().change_scene_to_file("res://Scenes/done_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")

@@ -85,7 +85,7 @@ func _on_win_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_ind
 	$"QTE circle".hide()
 	await get_tree().create_timer(.8).timeout
 	
-	if Global.minigames_done == 6:
+	if Global.minigames_done == 7:
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")

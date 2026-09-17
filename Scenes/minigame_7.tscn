@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://btgg2x3x1w2my"]
+
+[ext_resource type="Script" uid="uid://cio7eyx820j7d" path="res://Scenes/minigame_7.gd" id="1_5ojy8"]
+[ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="2_8nvbm"]
+[ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="3_m1xe1"]
+[ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="4_3m4y6"]
+[ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="5_8nvbm"]
+
+[node name="Node2D" type="Node2D" unique_id=1966963352]
+script = ExtResource("1_5ojy8")
+
+[node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1857687622]
+stream = ExtResource("2_8nvbm")
+parameters/looping = true
+
+[node name="BG" type="TextureRect" parent="." unique_id=484624328]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 1157.0
+offset_bottom = 649.0
+texture = ExtResource("4_3m4y6")
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("3_m1xe1")]
+position = Vector2(24, 0)
+
+[node name="MashIcon" type="TextureRect" parent="." unique_id=1401103164]
+offset_left = 195.00002
+offset_top = 56.999992
+offset_right = 1154.0
+offset_bottom = 314.0
+rotation = -0.035154738
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_8nvbm")
+
+[connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]

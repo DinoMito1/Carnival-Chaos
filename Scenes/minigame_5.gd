@@ -63,7 +63,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	$Button.texture = buttonHit2
 	
 	await get_tree().create_timer(1.5).timeout
-	if Global.minigames_done == 6:
+	if Global.minigames_done == 7:
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 	else:
 		get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")

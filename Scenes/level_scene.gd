@@ -39,6 +39,8 @@ func _ready() -> void:
 		controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
 	elif Global.minigames_done == 5:
 		controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
+	#elif Global.minigames_done == 6:
+		#controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
 	
 	await Timer(3.0)
 	
@@ -58,6 +60,8 @@ func _ready() -> void:
 		tweenOut.tween_property($HitIcon, "modulate:a", 1, .25)
 	elif Global.minigames_done == 5:
 		tweenOut.tween_property($PullIcon, "modulate:a", 1, .25)
+	#elif Global.minigames_done == 6:
+		#tweenOut.tween_property($PullIcon, "modulate:a", 1, .25)
 	
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
