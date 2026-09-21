@@ -19,10 +19,10 @@ func _ready() -> void:
 	$"QTE circle/QTE cursor/AnimationPlayer".seek(randf_range(0,1)) # starts at random point at animation
 	$"QTE circle/QTE cursor/AnimationPlayer".play("spinn")
 	
-	await $ThemedTimer.Timer(7)
-	var tween2 = create_tween() # only create_tween() without the get_tree(() part because this way SHOULD stop a crash when the scene changed and a tween were created simultaneously 
-	tween2.tween_property($ThemedTimer, "modulate:a", 1, .3)
-	await $ThemedTimer.Timer(10)
+	#await $ThemedTimer.Timer(7)
+	#var tween2 = create_tween() # only create_tween() without the get_tree(() part because this way SHOULD stop a crash when the scene changed and a tween were created simultaneously 
+	#tween2.tween_property($ThemedTimer, "modulate:a", 1, .3)
+	await $ThemedTimer.Timer(17)
 	
 	$TimeTickingSound.stop()
 	if won == false:

@@ -4,7 +4,17 @@
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="2_8nvbm"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="3_m1xe1"]
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="4_3m4y6"]
-[ext_resource type="Texture2D" uid="uid://dhb8l3inhq58g" path="res://Sprites/mash_Icon.png" id="5_8nvbm"]
+[ext_resource type="Texture2D" uid="uid://crph0vvm6rj0s" path="res://Sprites/templateHeadPaint.png" id="4_vkof5"]
+[ext_resource type="Texture2D" uid="uid://0rabk3i7dmu5" path="res://Sprites/guidePaper.png" id="4_xp4mv"]
+[ext_resource type="Texture2D" uid="uid://lft8ec8c2b5f" path="res://Sprites/templateTigerPaint.png" id="5_6tlyq"]
+[ext_resource type="Texture2D" uid="uid://cct0pqpk2vwh6" path="res://Sprites/templateFacePaint.png" id="6_6y32a"]
+[ext_resource type="Texture2D" uid="uid://davhf8ttlfljo" path="res://Sprites/PlayerHeadPaint.png" id="7_df13i"]
+[ext_resource type="Texture2D" uid="uid://cbtjgnbyayxfe" path="res://Sprites/PlayerHeadOutline.png" id="8_6y32a"]
+[ext_resource type="Texture2D" uid="uid://b20nhujrlwpc" path="res://Sprites/PaintHolder.png" id="8_bhg03"]
+[ext_resource type="Texture2D" uid="uid://cdpdol3ahniqp" path="res://Sprites/paint1.png" id="9_65kyc"]
+[ext_resource type="Texture2D" uid="uid://deg2lrrkno5gn" path="res://Sprites/Paint2.png" id="10_2ntgs"]
+[ext_resource type="Texture2D" uid="uid://op4mhpl7xb46" path="res://Sprites/paint_icon.png" id="10_6y32a"]
+[ext_resource type="Texture2D" uid="uid://1cxlarnjr8ul" path="res://Sprites/Paint3.png" id="11_gq1la"]
 
 [node name="Node2D" type="Node2D" unique_id=1966963352]
 script = ExtResource("1_5ojy8")
@@ -20,16 +30,115 @@ offset_right = 1157.0
 offset_bottom = 649.0
 texture = ExtResource("4_3m4y6")
 
-[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("3_m1xe1")]
-position = Vector2(24, 0)
+[node name="paintTemplate" type="Sprite2D" parent="." unique_id=1608690385]
+z_index = 1
+position = Vector2(917.0597, 337.7122)
+scale = Vector2(1.2476097, 1.2476097)
+texture = ExtResource("4_xp4mv")
 
-[node name="MashIcon" type="TextureRect" parent="." unique_id=1401103164]
-offset_left = 195.00002
-offset_top = 56.999992
-offset_right = 1154.0
-offset_bottom = 314.0
-rotation = -0.035154738
+[node name="TemplateHead" type="Sprite2D" parent="paintTemplate" unique_id=568012866]
+position = Vector2(3.0000153, -67.999985)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_vkof5")
+
+[node name="TemplateGuidePaint" type="Sprite2D" parent="paintTemplate/TemplateHead" unique_id=1141068303]
+texture = ExtResource("5_6tlyq")
+
+[node name="TemplateFace" type="Sprite2D" parent="paintTemplate/TemplateHead" unique_id=258624009]
+texture = ExtResource("6_6y32a")
+
+[node name="paintHolder" type="Sprite2D" parent="." unique_id=2079189298]
+z_index = 1
+position = Vector2(927.99994, 340)
+scale = Vector2(1.4092824, 1.4092824)
+texture = ExtResource("8_bhg03")
+
+[node name="paint1" type="Sprite2D" parent="paintHolder" unique_id=1025915193]
+self_modulate = Color(0.8745098, 0.44313726, 0.14901961, 1)
+position = Vector2(0.7095947, 0)
+texture = ExtResource("9_65kyc")
+
+[node name="paint1Button" type="Button" parent="paintHolder" unique_id=635623326]
+offset_left = -200.81134
+offset_top = 97.92215
+offset_right = -140.49695
+offset_bottom = 168.88025
+flat = true
+
+[node name="paint1Button2" type="Button" parent="paintHolder" unique_id=497776411]
+offset_left = -141.20654
+offset_top = 109.98505
+offset_right = -123.46704
+offset_bottom = 161.78445
+flat = true
+
+[node name="paint2" type="Sprite2D" parent="paintHolder" unique_id=1072139337]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("10_2ntgs")
+
+[node name="paint2Button" type="Button" parent="paintHolder" unique_id=1373981089]
+offset_left = -119.91914
+offset_top = 77.344315
+offset_right = -43.284378
+offset_bottom = 134.11076
+flat = true
+
+[node name="paint3" type="Sprite2D" parent="paintHolder" unique_id=56789485]
+texture = ExtResource("11_gq1la")
+
+[node name="paint3Button" type="Button" parent="paintHolder" unique_id=1027403083]
+offset_left = -120.62871
+offset_top = 147.59282
+offset_right = -44.703537
+offset_bottom = 217.13176
+flat = true
+
+[node name="paint3Button2" type="Button" parent="paintHolder" unique_id=1715230898]
+offset_left = -142.62578
+offset_top = 170.2994
+offset_right = -119.919174
+offset_bottom = 206.48805
+flat = true
+
+[node name="paint3Button3" type="Button" parent="paintHolder" unique_id=457638348]
+offset_left = -134.11073
+offset_top = 162.49403
+offset_right = -119.91914
+offset_bottom = 171.20363
+flat = true
+
+[node name="PlayerHeadPaint" type="TextureRect" parent="." unique_id=289277894]
+offset_left = -2.0
+offset_right = 647.0
+offset_bottom = 658.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("7_df13i")
+
+[node name="PlayerFace" type="Sprite2D" parent="PlayerHeadPaint" unique_id=510237982]
+position = Vector2(331, 337)
+texture = ExtResource("6_6y32a")
+
+[node name="PlayerFaceOutline" type="Sprite2D" parent="PlayerHeadPaint" unique_id=291497980]
+position = Vector2(324, 329)
+texture = ExtResource("8_6y32a")
+
+[node name="ThemedTimer" parent="." unique_id=677719671 instance=ExtResource("3_m1xe1")]
+z_index = 3
+position = Vector2(887, -20)
+
+[node name="PaintIcon" type="TextureRect" parent="." unique_id=1401103164]
+z_index = 2
+offset_left = 102.0
+offset_top = 40.0
+offset_right = 1091.0
+offset_bottom = 332.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_8nvbm")
+texture = ExtResource("10_6y32a")
 
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
+[connection signal="button_down" from="paintHolder/paint1Button" to="." method="_on_paint_1_button_button_down"]
+[connection signal="button_down" from="paintHolder/paint1Button2" to="." method="_on_paint_1_button_2_button_down"]
+[connection signal="button_down" from="paintHolder/paint2Button" to="." method="_on_paint_2_button_button_down"]
+[connection signal="button_down" from="paintHolder/paint3Button" to="." method="_on_paint_3_button_button_down"]
+[connection signal="button_down" from="paintHolder/paint3Button2" to="." method="_on_paint_3_button_2_button_down"]
+[connection signal="button_down" from="paintHolder/paint3Button3" to="." method="_on_paint_3_button_3_button_down"]

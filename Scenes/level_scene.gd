@@ -39,8 +39,8 @@ func _ready() -> void:
 		controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
 	elif Global.minigames_done == 5:
 		controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
-	#elif Global.minigames_done == 6:
-		#controlTween.tween_property($SpacebarIcon, "scale", Vector2(0.85,0.85), 2)
+	elif Global.minigames_done == 6:
+		controlTween.tween_property($PaintIcon, "scale", Vector2(0.85,0.85), 2)
 	
 	await Timer(3.0)
 	
