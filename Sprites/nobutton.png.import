@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://01qckuuovy11"
-path="res://.godot/imported/playrFacePaint.png-65bd65f97c2b885861583ce5acd85358.ctex"
+uid="uid://chqurac6aiq60"
+path="res://.godot/imported/nobutton.png-8646a18028e153708ab898233d6376bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/playrFacePaint.png"
-dest_files=["res://.godot/imported/playrFacePaint.png-65bd65f97c2b885861583ce5acd85358.ctex"]
+source_file="res://Sprites/nobutton.png"
+dest_files=["res://.godot/imported/nobutton.png-8646a18028e153708ab898233d6376bb.ctex"]
 
 [params]
 

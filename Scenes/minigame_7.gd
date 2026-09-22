@@ -1,9 +1,11 @@
 extends Node2D
 var won = false
 
+@onready var guideImage = Image.load_from_file("res://Sprites/templateTigerPaint.png")
 @onready var canvasImage = Image.load_from_file("res://Sprites/PlayerHeadPaint.png")
 @onready var paintTexture = ImageTexture.create_from_image(canvasImage)
 			#was going to use CanvasTexture but apparently thats already a class in GDScript???
+
 var skinColor
 var faceColor
 var paintOrange
@@ -13,6 +15,7 @@ var skyColor
 
 var currentPaint
 var drawSize
+var currentPixel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,6 +57,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if won == true:
+		$TimeTickingSound.stop()
+		#do winning stuff
+		await get_tree().create_timer(.5).timeout
+		if Global.minigames_done == 7:
+			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 	#if get_global_mouse_position().x < 650 and get_global_mouse_position().y < 630:
 		#$PaintSquare.position = get_global_mouse_position()
 		#$PaintSquare.modulate = currentPaint
@@ -75,7 +86,7 @@ func edit_canvas():
 	
 	#print(currentViewport.get_pixelv(mousepos)) #current pixel color
 	
-	if mousepos.y < 630 and mousepos.x < 650 and ( currentViewport.get_pixelv(mousepos).is_equal_approx( skinColor ) or currentViewport.get_pixelv(mousepos).is_equal_approx( faceColor ) or currentViewport.get_pixelv(mousepos).is_equal_approx( paintOrange ) or currentViewport.get_pixelv(mousepos).is_equal_approx( paintWhite ) or currentViewport.get_pixelv(mousepos).is_equal_approx( paintBlack ) ):
+	if mousepos.y < 630 and mousepos.x < 650:
 		#only paints if pixel is certain color (face skin color, face color and the paint colors)                       
 		#paints in a square 'drawSize' big
 		
@@ -83,8 +94,9 @@ func edit_canvas():
 			for y in range(drawSize):
 				if mousepos.y-(drawSize/2-1)+y<648 and mousepos.y-(drawSize/2-1)+y>0 and mousepos.x-(drawSize/2-1)+x>0 and mousepos.x-(drawSize/2-1)+x<649:
 				#this stops the next if statement from looking at pixels not in the viewport and throwing an error
-					print(not currentViewport.get_pixel(mousepos.x-(drawSize/2-1)+x,mousepos.y-(drawSize/2-1)+y).is_equal_approx( skyColor ))
-					if not currentViewport.get_pixel(mousepos.x-(drawSize/2-1)+x,mousepos.y-(drawSize/2-1)+y).is_equal_approx( skyColor ):
+					currentPixel = currentViewport.get_pixel(mousepos.x-(drawSize/2-1)+x,mousepos.y-(drawSize/2-1)+y)
+					#print(currentPixel.is_equal_approx( skinColor ) or currentPixel.is_equal_approx( faceColor ) or currentPixel.is_equal_approx( paintOrange ) or currentPixel.is_equal_approx( paintWhite ) or currentPixel.is_equal_approx( paintBlack ))
+					if currentPixel.is_equal_approx( skinColor ) or currentPixel.is_equal_approx( faceColor ) or currentPixel.is_equal_approx( paintOrange ) or currentPixel.is_equal_approx( paintWhite ) or currentPixel.is_equal_approx( paintBlack ):
 						canvasImage.set_pixel(mousepos.x-(drawSize/2-1)+x, mousepos.y-(drawSize/2-1)+y,currentPaint)
 		
 		RenderingServer.texture_2d_update(paintTexture.get_rid(), canvasImage, 0)
@@ -98,14 +110,23 @@ func _on_time_ticking_sound_finished() -> void:
 func _on_paint_1_button_button_down() -> void:
 	currentPaint = paintOrange
 	drawSize = 128
+	$paintHolder/paint1.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint1.modulate = Color(1,1,1,1)
 
 func _on_paint_1_button_2_button_down() -> void:
 	currentPaint = paintOrange
 	drawSize = 128
+	$paintHolder/paint2.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint2.modulate = Color(1,1,1,1)
 
 func _on_paint_2_button_button_down() -> void:
 	currentPaint = paintWhite
 	drawSize = 64
+	$paintHolder/paint3.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint3.modulate = Color(1,1,1,1)
 
 
 func _on_paint_3_button_button_down() -> void:
@@ -121,3 +142,25 @@ func _on_paint_3_button_2_button_down() -> void:
 func _on_paint_3_button_3_button_down() -> void:
 	currentPaint = paintBlack
 	drawSize = 16
+
+func checkWin():
+	var paintedImage = paintTexture.get_image()
+	var numCorrect = 0
+	for x in range(649):
+		for y in range(658):
+			if guideImage.get_pixel(x,y).is_equal_approx(paintedImage.get_pixel(x,y)):
+				numCorrect += 1
+	if (numCorrect / 427042.0 > 0.7):
+		won = true
+	else:
+		print('no way jose')
+	#print( str(( numCorrect / (649.0*658.0) ) * 100) + '%' )
+
+func _on_yes_button_button_down() -> void:
+	checkWin()
+
+func _on_no_button_button_down() -> void:
+	#resets paint
+	canvasImage = Image.load_from_file("res://Sprites/PlayerHeadPaint.png")
+	paintTexture = ImageTexture.create_from_image(canvasImage)
+	$PlayerHeadPaint.texture = paintTexture

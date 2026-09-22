@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://deg2lrrkno5gn" path="res://Sprites/Paint2.png" id="10_2ntgs"]
 [ext_resource type="Texture2D" uid="uid://op4mhpl7xb46" path="res://Sprites/paint_icon.png" id="10_6y32a"]
 [ext_resource type="Texture2D" uid="uid://1cxlarnjr8ul" path="res://Sprites/Paint3.png" id="11_gq1la"]
+[ext_resource type="Texture2D" uid="uid://dtedb5e1cev4i" path="res://Sprites/yesbutton.png" id="16_bhg03"]
+[ext_resource type="Texture2D" uid="uid://chqurac6aiq60" path="res://Sprites/nobutton.png" id="17_65kyc"]
 
 [node name="Node2D" type="Node2D" unique_id=1966963352]
 script = ExtResource("1_5ojy8")
@@ -42,6 +44,7 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("4_vkof5")
 
 [node name="TemplateGuidePaint" type="Sprite2D" parent="paintTemplate/TemplateHead" unique_id=1141068303]
+position = Vector2(0, 4.5802)
 texture = ExtResource("5_6tlyq")
 
 [node name="TemplateFace" type="Sprite2D" parent="paintTemplate/TemplateHead" unique_id=258624009]
@@ -73,7 +76,7 @@ offset_bottom = 161.78445
 flat = true
 
 [node name="paint2" type="Sprite2D" parent="paintHolder" unique_id=1072139337]
-self_modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.15775341, 0.15775329, 0.15775335, 1)
 texture = ExtResource("10_2ntgs")
 
 [node name="paint2Button" type="Button" parent="paintHolder" unique_id=1373981089]
@@ -135,6 +138,53 @@ offset_bottom = 332.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("10_6y32a")
 
+[node name="YesButton" type="Sprite2D" parent="." unique_id=1725919891]
+z_index = 1
+position = Vector2(1045.0001, 458)
+scale = Vector2(1.1413044, 1.1413044)
+texture = ExtResource("16_bhg03")
+
+[node name="yesButton" type="Button" parent="YesButton" unique_id=691189269]
+anchors_preset = -1
+anchor_left = -0.028573077
+anchor_right = 0.047617372
+anchor_bottom = -0.009523806
+offset_left = -49.066666
+offset_top = -50.81904
+offset_right = 45.561935
+offset_bottom = 45.561913
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="NoButton" type="Sprite2D" parent="." unique_id=1896348609]
+z_index = 1
+position = Vector2(1079, 561)
+scale = Vector2(1.173913, 1.173913)
+texture = ExtResource("17_65kyc")
+
+[node name="NoButton" type="Button" parent="NoButton" unique_id=1136751560]
+anchors_preset = -1
+anchor_left = -0.037037063
+anchor_top = 0.018518532
+anchor_right = 0.03624294
+offset_left = -50.259277
+offset_top = -45.999996
+offset_right = 44.369324
+offset_bottom = 50.380955
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1026944166]
+offset_left = 46.0
+offset_top = 703.0
+offset_right = 622.0
+offset_bottom = 841.0
+theme_override_colors/default_color = Color(1, 0.53333336, 0.53333336, 1)
+theme_override_colors/font_outline_color = Color(0.42352942, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/normal_font_size = 100
+text = "Not quite..."
+
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
 [connection signal="button_down" from="paintHolder/paint1Button" to="." method="_on_paint_1_button_button_down"]
 [connection signal="button_down" from="paintHolder/paint1Button2" to="." method="_on_paint_1_button_2_button_down"]
@@ -142,3 +192,5 @@ texture = ExtResource("10_6y32a")
 [connection signal="button_down" from="paintHolder/paint3Button" to="." method="_on_paint_3_button_button_down"]
 [connection signal="button_down" from="paintHolder/paint3Button2" to="." method="_on_paint_3_button_2_button_down"]
 [connection signal="button_down" from="paintHolder/paint3Button3" to="." method="_on_paint_3_button_3_button_down"]
+[connection signal="button_down" from="YesButton/yesButton" to="." method="_on_yes_button_button_down"]
+[connection signal="button_down" from="NoButton/NoButton" to="." method="_on_no_button_button_down"]
