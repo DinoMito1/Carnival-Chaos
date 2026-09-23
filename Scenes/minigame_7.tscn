@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cio7eyx820j7d" path="res://Scenes/minigame_7.gd" id="1_5ojy8"]
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="2_8nvbm"]
+[ext_resource type="AudioStream" uid="uid://c1vsg1j8vnoxt" path="res://audio/paintingSounds.mp3" id="3_65kyc"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="3_m1xe1"]
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="4_3m4y6"]
 [ext_resource type="Texture2D" uid="uid://crph0vvm6rj0s" path="res://Sprites/templateHeadPaint.png" id="4_vkof5"]
@@ -24,6 +25,12 @@ script = ExtResource("1_5ojy8")
 [node name="TimeTickingSound" type="AudioStreamPlayer" parent="." unique_id=1857687622]
 stream = ExtResource("2_8nvbm")
 parameters/looping = true
+
+[node name="paintingSound" type="AudioStreamPlayer2D" parent="." unique_id=1598474939]
+stream = ExtResource("3_65kyc")
+volume_db = -5.0
+
+[node name="VoiceClips" type="AudioStreamPlayer2D" parent="." unique_id=618874554]
 
 [node name="BG" type="TextureRect" parent="." unique_id=484624328]
 offset_left = -3.0
@@ -147,6 +154,7 @@ texture = ExtResource("16_bhg03")
 [node name="yesButton" type="Button" parent="YesButton" unique_id=691189269]
 anchors_preset = -1
 anchor_left = -0.028573077
+anchor_top = -0.009523806
 anchor_right = 0.047617372
 anchor_bottom = -0.009523806
 offset_left = -49.066666
@@ -167,6 +175,7 @@ anchors_preset = -1
 anchor_left = -0.037037063
 anchor_top = 0.018518532
 anchor_right = 0.03624294
+anchor_bottom = 0.018518532
 offset_left = -50.259277
 offset_top = -45.999996
 offset_right = 44.369324

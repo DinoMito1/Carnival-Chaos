@@ -40,10 +40,14 @@ func _ready() -> void:
 	$paintHolder/paint2.self_modulate = paintBlack
 	$paintHolder/paint3.self_modulate = paintWhite
 	
-	await $ThemedTimer.Timer(90)
+	await $ThemedTimer.Timer(80)
+	
+	if won == false: #checks if you win when time is out
+		checkWin()
 	
 	$TimeTickingSound.stop()
 	if won == false:
+		won = true #this is so
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1
@@ -57,14 +61,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if won == true:
-		$TimeTickingSound.stop()
-		#do winning stuff
-		await get_tree().create_timer(.5).timeout
-		if Global.minigames_done == 7:
-			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
-		else:
-			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+	
 	#if get_global_mouse_position().x < 650 and get_global_mouse_position().y < 630:
 		#$PaintSquare.position = get_global_mouse_position()
 		#$PaintSquare.modulate = currentPaint
@@ -74,7 +71,7 @@ func _process(delta: float) -> void:
 	#your mouse would always be on a colored spot
 
 	
-	if Global.lost_prev == false and Input.is_action_pressed("left click"):
+	if won == false and Input.is_action_pressed("left click"):
 		#only runs if game hasnt ended and left mouse is clicked down
 		edit_canvas()
 	
@@ -89,7 +86,8 @@ func edit_canvas():
 	if mousepos.y < 630 and mousepos.x < 650:
 		#only paints if pixel is certain color (face skin color, face color and the paint colors)                       
 		#paints in a square 'drawSize' big
-		
+		if $paintingSound.playing == false:
+			$paintingSound.play()
 		for x in range(drawSize):
 			for y in range(drawSize):
 				if mousepos.y-(drawSize/2-1)+y<648 and mousepos.y-(drawSize/2-1)+y>0 and mousepos.x-(drawSize/2-1)+x>0 and mousepos.x-(drawSize/2-1)+x<649:
@@ -152,9 +150,23 @@ func checkWin():
 				numCorrect += 1
 	if (numCorrect / 427042.0 > 0.7):
 		won = true
-	else:
-		print('no way jose')
-	#print( str(( numCorrect / (649.0*658.0) ) * 100) + '%' )
+		$TimeTickingSound.stop()
+		$VoiceClips.stream = load("res://audio/VoiceClipYay.mp3")
+		$VoiceClips.play()
+		#do winning stuff
+		await get_tree().create_timer(1.2).timeout
+		if Global.minigames_done == 7:
+			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
+	elif (numCorrect / 427042.0 > 0.6): # not correct but over 55% accurate
+		$VoiceClips.stream = load("res://audio/VoiceClip6.mp3")
+		$VoiceClips.play()
+	else: # less than 55% accurate
+		#picks a random voice clip
+		$VoiceClips.stream = load("res://audio/VoiceClip" + str(randi_range(1,4)) + ".mp3")
+		$VoiceClips.play()
+	#print( str(( numCorrect / (649.0*658.0) ) * 100) + '% correct' )
 
 func _on_yes_button_button_down() -> void:
 	checkWin()
