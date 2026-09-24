@@ -1,9 +1,9 @@
 extends Node2D
 var won = false
 
-@onready var guideImage = Image.load_from_file("res://Sprites/templateTigerPaint.png")
-@onready var canvasImage = Image.load_from_file("res://Sprites/PlayerHeadPaint.png")
-@onready var paintTexture = ImageTexture.create_from_image(canvasImage)
+var guideImage = Image.load_from_file("res://Sprites/templateTigerPaint.png")
+var canvasImage = Image.load_from_file("res://Sprites/PlayerHeadPaint.png")
+var paintTexture = ImageTexture.create_from_image(canvasImage)
 			#was going to use CanvasTexture but apparently thats already a class in GDScript???
 
 var skinColor
@@ -97,8 +97,13 @@ func edit_canvas():
 					if currentPixel.is_equal_approx( skinColor ) or currentPixel.is_equal_approx( faceColor ) or currentPixel.is_equal_approx( paintOrange ) or currentPixel.is_equal_approx( paintWhite ) or currentPixel.is_equal_approx( paintBlack ):
 						canvasImage.set_pixel(mousepos.x-(drawSize/2-1)+x, mousepos.y-(drawSize/2-1)+y,currentPaint)
 		
-		RenderingServer.texture_2d_update(paintTexture.get_rid(), canvasImage, 0)
+		
+		#RenderingServer.texture_2d_update(paintTexture.get_rid(), canvasImage, 0)
+		#$PlayerHeadPaint.texture = paintTexture
+		
+		paintTexture.update(canvasImage)
 		$PlayerHeadPaint.texture = paintTexture
+		
 
 func _on_time_ticking_sound_finished() -> void:
 	# this gets around sound not looping on web export for some reason
@@ -115,9 +120,9 @@ func _on_paint_1_button_button_down() -> void:
 func _on_paint_1_button_2_button_down() -> void:
 	currentPaint = paintOrange
 	drawSize = 128
-	$paintHolder/paint2.modulate = Color(.75,.75,.75,1)
+	$paintHolder/paint1.modulate = Color(.75,.75,.75,1)
 	await get_tree().create_timer(.25).timeout
-	$paintHolder/paint2.modulate = Color(1,1,1,1)
+	$paintHolder/paint1.modulate = Color(1,1,1,1)
 
 func _on_paint_2_button_button_down() -> void:
 	currentPaint = paintWhite
@@ -130,16 +135,24 @@ func _on_paint_2_button_button_down() -> void:
 func _on_paint_3_button_button_down() -> void:
 	currentPaint = paintBlack
 	drawSize = 16
+	$paintHolder/paint2.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint2.modulate = Color(1,1,1,1)
 
 
 func _on_paint_3_button_2_button_down() -> void:
 	currentPaint = paintBlack
 	drawSize = 16
-
+	$paintHolder/paint2.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint2.modulate = Color(1,1,1,1)
 
 func _on_paint_3_button_3_button_down() -> void:
 	currentPaint = paintBlack
 	drawSize = 16
+	$paintHolder/paint2.modulate = Color(.75,.75,.75,1)
+	await get_tree().create_timer(.25).timeout
+	$paintHolder/paint2.modulate = Color(1,1,1,1)
 
 func checkWin():
 	var paintedImage = paintTexture.get_image()
@@ -148,7 +161,7 @@ func checkWin():
 		for y in range(658):
 			if guideImage.get_pixel(x,y).is_equal_approx(paintedImage.get_pixel(x,y)):
 				numCorrect += 1
-	if (numCorrect / 427042.0 > 0.7):
+	if (numCorrect / 427042.0 > 0.7): # percent accuracy required to win
 		won = true
 		$TimeTickingSound.stop()
 		$VoiceClips.stream = load("res://audio/VoiceClipYay.mp3")
@@ -159,14 +172,27 @@ func checkWin():
 			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
-	elif (numCorrect / 427042.0 > 0.6): # not correct but over 55% accurate
+	elif (numCorrect / 427042.0 > 0.55): # not correct but over 55% accurate
 		$VoiceClips.stream = load("res://audio/VoiceClip6.mp3")
 		$VoiceClips.play()
+		
+		$RichTextLabel.position = Vector2i(576,138)
+		$RichTextLabel.modulate = Color(1.0, 0.851, 0.4)
+		$RichTextLabel.text = 'Almost there... (' + str( snapped(( numCorrect / (649.0*658.0) ) * 100, 0.1) ) + '%)'
+		$RichTextLabel/AnimationPlayer.play("text_slide")
+	
 	else: # less than 55% accurate
 		#picks a random voice clip
 		$VoiceClips.stream = load("res://audio/VoiceClip" + str(randi_range(1,4)) + ".mp3")
 		$VoiceClips.play()
-	#print( str(( numCorrect / (649.0*658.0) ) * 100) + '% correct' )
+		
+		$RichTextLabel.position = Vector2i(576,138)
+		$RichTextLabel.modulate = Color(1.0, 0.4, 0.4)
+		$RichTextLabel.text = 'Incorrect (' + str( snapped(( numCorrect / (649.0*658.0) ) * 100, 0.1) ) + '%)'
+		#$RichTextLabel.text = ( str(snapped( ( numCorrect / (649.0*658.0) ) * 100, .1)) )
+		$RichTextLabel/AnimationPlayer.play("text_slide")
+		
+	print( str(( numCorrect / (649.0*658.0) ) * 100) + '% correct' )
 
 func _on_yes_button_button_down() -> void:
 	checkWin()
