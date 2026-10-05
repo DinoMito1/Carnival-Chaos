@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://cxpqvhp48u1xi" path="res://audio/timerTick.mp3" id="2_8nvbm"]
 [ext_resource type="AudioStream" uid="uid://c1vsg1j8vnoxt" path="res://audio/paintingSounds.mp3" id="3_65kyc"]
 [ext_resource type="PackedScene" uid="uid://deypms2m4vua0" path="res://Scenes/Timer.tscn" id="3_m1xe1"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="4_2ntgs"]
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="4_3m4y6"]
 [ext_resource type="Texture2D" uid="uid://crph0vvm6rj0s" path="res://Sprites/templateHeadPaint.png" id="4_vkof5"]
 [ext_resource type="Texture2D" uid="uid://0rabk3i7dmu5" path="res://Sprites/guidePaper.png" id="4_xp4mv"]
@@ -68,6 +69,7 @@ stream = ExtResource("3_65kyc")
 volume_db = 3.0
 
 [node name="VoiceClips" type="AudioStreamPlayer2D" parent="." unique_id=618874554]
+volume_db = 1.0
 
 [node name="BG" type="TextureRect" parent="." unique_id=484624328]
 offset_left = -3.0
@@ -235,6 +237,8 @@ text = "Not quite..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel" unique_id=2003395999]
 libraries/ = SubResource("AnimationLibrary_gq1la")
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("4_2ntgs")]
 
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
 [connection signal="button_down" from="paintHolder/paint1Button" to="." method="_on_paint_1_button_button_down"]

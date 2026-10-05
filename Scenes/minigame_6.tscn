@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dc0eq78ktqlvq" path="res://Sprites/QTE_circle_color.png" id="12_5ru11"]
 [ext_resource type="Texture2D" uid="uid://c3y37aq2i2yri" path="res://Sprites/tugofwarPersonPlayerHands.png" id="12_ein88"]
 [ext_resource type="Texture2D" uid="uid://cr720ouhicw08" path="res://Sprites/tugofwarPerson2Hands.png" id="15_2n5kv"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="21_pl4rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xuuwq"]
 size = Vector2(6.3342814, 199.27281)
@@ -218,6 +219,8 @@ position = Vector2(595.99994, 336)
 scale = Vector2(65.42699, -37.46935)
 shape = SubResource("RectangleShape2D_5vlbl")
 action = "spacebar"
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("21_pl4rx")]
 
 [connection signal="bad_hit" from="." to="Rope" method="_on_node_2d_bad_hit"]
 [connection signal="good_hit" from="." to="Rope" method="_on_node_2d_good_hit"]

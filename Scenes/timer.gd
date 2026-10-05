@@ -10,14 +10,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.paused == true:
+		get_tree().paused = true
+	else: #if pause is false
+		get_tree().paused = false
+	
 	timer.text = str(snapped(time,0.10))
 	
 func Timer(start_time: float):
 	time = start_time
 	
+	
 	while time > 0.1:
 		if is_inside_tree(): # hopefully fixes game sometimes crashing on scene change
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.1, false).timeout
 			time -= 0.1
 		else:
 			return

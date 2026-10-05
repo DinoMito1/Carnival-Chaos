@@ -13,8 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://ckpsb8ibxqqb0" path="res://audio/sad_awwww.mp3" id="11_njln1"]
 [ext_resource type="Texture2D" uid="uid://bktams4uvv7p3" path="res://Sprites/pull_icon.png" id="11_nwlgb"]
 [ext_resource type="Texture2D" uid="uid://op4mhpl7xb46" path="res://Sprites/paint_icon.png" id="13_g0s7p"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="14_27clv"]
 
 [node name="level_scene" type="Node2D" unique_id=324770618]
+process_mode = 1
 script = ExtResource("1_c7xwe")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1921760730]
@@ -182,3 +184,5 @@ offset_right = 1091.0
 offset_bottom = 332.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("13_g0s7p")
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("14_27clv")]

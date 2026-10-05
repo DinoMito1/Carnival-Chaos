@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="13_4andj"]
 [ext_resource type="Texture2D" uid="uid://bkqnlsfkau5fk" path="res://Sprites/newMobileLeft.png" id="14_kllcc"]
 [ext_resource type="Texture2D" uid="uid://fvvkt1mmwgsa" path="res://Sprites/newMobileRight.png" id="15_f12bx"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="16_f12bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6yob"]
 size = Vector2(1158, 63)
@@ -365,6 +366,8 @@ rotation = -1.5707964
 texture_normal = ExtResource("14_kllcc")
 action = "ui_down"
 metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("16_f12bx")]
 
 [connection signal="coin_collected" from="Coin" to="." method="coin_collect"]
 [connection signal="coin_collected" from="Coin2" to="." method="coin_collect"]

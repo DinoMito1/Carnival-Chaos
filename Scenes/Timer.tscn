@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bbsyqbexx0feo" path="res://Scenes/timer.gd" id="1_7jo7d"]
 
 [node name="Node2D" type="Node2D" unique_id=677719671]
+process_mode = 1
 script = ExtResource("1_7jo7d")
 
 [node name="timer" type="RichTextLabel" parent="." unique_id=1631620332]

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c7kksmebx1eni" path="res://Sprites/HammerHit.png" id="9_oo5rc"]
 [ext_resource type="Texture2D" uid="uid://b1r17nwly7hg4" path="res://Sprites/HammerButtonBase.png" id="9_te8fa"]
 [ext_resource type="Texture2D" uid="uid://cble8pvjh1bkk" path="res://Sprites/ThingyIDK.png" id="13_gymju"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="14_br4fl"]
 
 [sub_resource type="Animation" id="Animation_ogih7"]
 length = 0.001
@@ -415,6 +416,8 @@ position = Vector2(595.99994, 336)
 scale = Vector2(65.42699, -37.46935)
 shape = SubResource("RectangleShape2D_gymju")
 action = "spacebar"
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("14_br4fl")]
 
 [connection signal="finished" from="TimeTickingSound" to="." method="_on_time_ticking_sound_finished"]
 [connection signal="area_entered" from="Button/Area2D" to="." method="_on_area_2d_area_entered"]

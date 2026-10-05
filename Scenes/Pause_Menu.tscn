@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c7lmrgpb2w2vt"]
+
+[ext_resource type="Texture2D" uid="uid://cewqjw4n1tkel" path="res://Sprites/PAUSE.png" id="1_81e3q"]
+[ext_resource type="Script" uid="uid://ddrfvki57au8b" path="res://Scenes/pause_button.gd" id="2_gsskx"]
+[ext_resource type="Texture2D" uid="uid://8iek6ewawqao" path="res://Sprites/ContinueButton.png" id="3_gsskx"]
+[ext_resource type="Texture2D" uid="uid://by543sgqiafbv" path="res://Sprites/QuitButton.png" id="4_18nnx"]
+[ext_resource type="AudioStream" uid="uid://bnw8vf3p8i1pb" path="res://audio/button_press.mp3" id="5_18nnx"]
+
+[node name="Node2D" type="Node2D" unique_id=1526971578]
+
+[node name="Pause Button" type="TextureRect" parent="." unique_id=2065450647]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.302)
+z_index = 6
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 85.0
+offset_bottom = 87.0
+texture = ExtResource("1_81e3q")
+script = ExtResource("2_gsskx")
+
+[node name="Button" type="Button" parent="Pause Button" unique_id=1978572637]
+process_mode = 3
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 83.0
+offset_bottom = 82.0
+flat = true
+
+[node name="Pause Menu" type="ColorRect" parent="." unique_id=109569237]
+process_mode = 3
+z_index = 10
+offset_left = -1388.0
+offset_top = -1014.0
+offset_right = 222.53613
+offset_bottom = 551.68665
+rotation = -0.5235988
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Continue Button" type="TextureButton" parent="Pause Menu" unique_id=364705461]
+layout_mode = 0
+offset_left = 623.8588
+offset_top = 399.44485
+offset_right = 1562.8589
+offset_bottom = 644.4448
+rotation = 0.5235988
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("3_gsskx")
+stretch_mode = 0
+
+[node name="Quit Button" type="TextureButton" parent="Pause Menu" unique_id=1339193037]
+layout_mode = 0
+offset_left = 503.82294
+offset_top = 615.35315
+offset_right = 1442.823
+offset_bottom = 860.35315
+rotation = 0.5235988
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_18nnx")
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pause Menu" unique_id=1555961465]
+layout_mode = 0
+offset_left = 886.6522
+offset_top = 380.27307
+offset_right = 1356.6521
+offset_bottom = 552.2731
+rotation = 0.5235988
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/normal_font_size = 110
+text = "PAUSED"
+
+[node name="PauseButton" type="AudioStreamPlayer" parent="." unique_id=1557933752]
+stream = ExtResource("5_18nnx")
+volume_db = 6.0
+
+[connection signal="button_down" from="Pause Button/Button" to="Pause Button" method="_on_button_button_down"]
+[connection signal="button_up" from="Pause Button/Button" to="Pause Button" method="_on_button_button_up"]
+[connection signal="mouse_entered" from="Pause Button/Button" to="Pause Button" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Pause Button/Button" to="Pause Button" method="_on_button_mouse_exited"]
+[connection signal="button_down" from="Pause Menu/Continue Button" to="Pause Button" method="_on_continue_button_button_down"]
+[connection signal="button_up" from="Pause Menu/Continue Button" to="Pause Button" method="_on_continue_button_button_up"]
+[connection signal="button_down" from="Pause Menu/Quit Button" to="Pause Button" method="_on_quit_button_button_down"]
+[connection signal="button_up" from="Pause Menu/Quit Button" to="Pause Button" method="_on_quit_button_button_up"]

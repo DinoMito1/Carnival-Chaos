@@ -54,7 +54,7 @@ func _process(delta: float) -> void:
 	
 	if coins_collected == 3:
 		won = true
-		await get_tree().create_timer(.5).timeout
+		await get_tree().create_timer(.5, false).timeout
 		
 		Global.lost_prev = false
 		themed_timer.Stop()

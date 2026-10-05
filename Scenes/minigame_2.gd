@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		won = true
 		var tween1 = get_tree().create_tween()
 		tween1.tween_property($ThemedTimer, "modulate:a", 0, .15)
-		await get_tree().create_timer(.2).timeout
+		await get_tree().create_timer(.2, false).timeout
 				
 		Global.lost_prev = false
 		if Global.minigames_done == 7:

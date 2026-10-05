@@ -142,7 +142,7 @@ func _process(delta: float) -> void:
 		won = true
 		
 		
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(2, false).timeout
 		
 		if Global.minigames_done == 7:
 			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")

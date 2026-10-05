@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		$Tank/AnimationPlayer.play("tank_splash")
 		$SplashSound.play()
 		
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(2, false).timeout
 		
 		if Global.minigames_done == 7:
 			get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
@@ -48,7 +48,7 @@ func _on_target_button_down() -> void:
 		if targetTween:
 			targetTween.kill()
 		targetTween = get_tree().create_tween()
-		targetTween.tween_property($Target, "scale", Vector2(1.2, 1.2), 1)
+		targetTween.tween_property($Target, "scale", Vector2(1.4, 1.4), 1)
 		clicks += 1
 		$HitSound.pitch_scale = randf_range(0.7, 1.03) + (clicks * 0.025)
 		$HitSound.play()

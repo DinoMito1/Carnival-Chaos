@@ -81,9 +81,9 @@ func _on_win_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_ind
 	#do winning stuff
 	var winTween = get_tree().create_tween()
 	winTween.tween_property($"QTE circle", "modulate:a", 0, .2)
-	await get_tree().create_timer(.2).timeout
+	await get_tree().create_timer(.2, false).timeout
 	$"QTE circle".hide()
-	await get_tree().create_timer(.8).timeout
+	await get_tree().create_timer(.8, false).timeout
 	
 	if Global.minigames_done == 7:
 		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
@@ -96,9 +96,9 @@ func _on_lose_zone_body_shape_entered(body_rid: RID, body: Node2D, body_shape_in
 	if won == false:
 		var loseTween = get_tree().create_tween()
 		loseTween.tween_property($"QTE circle", "modulate:a", 0, .2)
-		await get_tree().create_timer(.2).timeout
+		await get_tree().create_timer(.2, false).timeout
 		$"QTE circle".hide()
-		await get_tree().create_timer(.8).timeout
+		await get_tree().create_timer(.8, false).timeout
 		Global.lost_prev = true
 		Global.lives -= 1
 		Global.minigames_done -= 1

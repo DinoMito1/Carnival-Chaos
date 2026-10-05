@@ -25,4 +25,4 @@ func _on_volume_bar_value_changed(value: float) -> void:
 
 func _on_volume_reset_button_down() -> void:
 	Global.volume = 1
-	$VolumeBar.value = 25
+	$VolumeBar.value = 40

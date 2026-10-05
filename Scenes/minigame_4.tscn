@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://tqwiyac84ada" path="res://Sprites/MobileControlBG.png" id="20_j0k2e"]
 [ext_resource type="Texture2D" uid="uid://bkqnlsfkau5fk" path="res://Sprites/newMobileLeft.png" id="21_8xthx"]
 [ext_resource type="Texture2D" uid="uid://fvvkt1mmwgsa" path="res://Sprites/newMobileRight.png" id="22_533ve"]
+[ext_resource type="PackedScene" uid="uid://c7lmrgpb2w2vt" path="res://Scenes/Pause_Menu.tscn" id="23_533ve"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_frvhq"]
 radius = 63.945778
@@ -304,6 +305,8 @@ scale = Vector2(1.0000001, 1.0000001)
 texture_normal = ExtResource("21_8xthx")
 action = "ui_up"
 metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." unique_id=1526971578 instance=ExtResource("23_533ve")]
 
 [connection signal="body_entered" from="Target" to="." method="_on_target_body_entered"]
 [connection signal="body_exited" from="Target" to="." method="_on_target_body_exited"]

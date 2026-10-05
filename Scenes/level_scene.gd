@@ -66,7 +66,7 @@ func _ready() -> void:
 	if Global.lives == 0:
 		get_tree().change_scene_to_file("res://Scenes/lose_screen.tscn")
 	
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.5, false).timeout
 	
 	Global.minigames_done += 1
 	get_tree().change_scene_to_file("res://Scenes/minigame_" + str(Global.minigames_done) + ".tscn")
@@ -126,6 +126,6 @@ func Timer(start_time: float): # function for timer countdown
 	time = start_time
 	
 	while time >= 0.1: # loop decreases timer
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1, false).timeout
 		time -= 0.1
 	return
