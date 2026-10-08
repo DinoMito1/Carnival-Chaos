@@ -11,15 +11,16 @@ Complete all the minigames as fast as you can to get the fastest time
 
 ## Features:
 
-  + Four different carnival minigames
+  + Seven different carnival themed minigames
   + Keeps track of your fastest time so you can try to win as quickly as possible
   + A volume slider in settings
+  + A pause button during all minigames
   + Custom win and loss screen
   + Mobile support
   + Sound effects all made by yours truly!
 
 ##
-The four minigames are:
+The seven minigames are:
 
 __Hay Bale Climb__ - a platformer where you must climb the hay bales and collect all the coins
 
@@ -28,6 +29,12 @@ __Whack-a-mole__ - Quickly click on all of the moles before time runs out
 __Dunk Tank__ - Rapidly hit the target to dunk the person in water
 
 __Water Gun__ - spray the target with a water gun to fill up the meter and win
+
+__High Striker__ - Quickly time your swing using the spacebar to hit the button and ring the bell
+
+__Tug of War__ - Hit several quick-time events to pull the rope towards your side, but be quick, your opponent is pulling back. Pull it far enough before time runs out to win
+
+__Face Painting__ - Paint the face to match the template. When your done, hit the checkmark button to check your work, and if your close enough to the guide, you win!
 
 The game is fully coded in the Godot engine using GDScript. I had some help making the first two minigames thanks to the Stardance "Make a WarioWare Game" Mission, but all minigames after that were made entirely by me
 
