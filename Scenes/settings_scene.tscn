@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dxe4vxatnj0ms" path="res://Sprites/menu_background.png" id="2_amiku"]
 [ext_resource type="Texture2D" uid="uid://yaotdyvyq5u1" path="res://Sprites/refresh_button.png" id="3_2kfxj"]
 [ext_resource type="AudioStream" uid="uid://bspuhukv60fg3" path="res://audio/bep.mp3" id="4_2gedn"]
+[ext_resource type="AudioStream" uid="uid://bnw8vf3p8i1pb" path="res://audio/button_press.mp3" id="5_6giix"]
+[ext_resource type="Texture2D" uid="uid://3j8q0jp48o2e" path="res://Sprites/Toggle_NOT_checked.png" id="5_ibs2t"]
 
 [node name="Settings_scene" type="Node2D" unique_id=185360734]
 script = ExtResource("1_cmf5w")
@@ -21,6 +23,13 @@ offset_top = 27.0
 offset_right = 1133.0
 offset_bottom = 631.0
 color = Color(0.21568628, 0.24705882, 0.30980393, 0.7411765)
+
+[node name="SettingBox2" type="ColorRect" parent="SettingBox" unique_id=515830437]
+layout_mode = 0
+offset_top = 229.0
+offset_right = 1108.0
+offset_bottom = 238.0
+color = Color(0.21508199, 0.24780053, 0.30943933, 0.8)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=762825787]
 offset_left = 720.0
@@ -77,10 +86,37 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/normal_font_size = 48
 text = " 25%"
 
+[node name="MobileControlText" type="RichTextLabel" parent="." unique_id=1587886788]
+offset_left = 124.0
+offset_top = 321.0
+offset_right = 368.0
+offset_bottom = 487.0
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 48
+text = "Mobile Controls"
+
 [node name="volumeAdjustSound" type="AudioStreamPlayer2D" parent="." unique_id=857036191]
 stream = ExtResource("4_2gedn")
 volume_db = 11.0
 
+[node name="ButtonToggleSound" type="AudioStreamPlayer2D" parent="." unique_id=481885610]
+stream = ExtResource("5_6giix")
+volume_db = 12.0
+
+[node name="Mobile Control Toggle" type="Button" parent="." unique_id=900449744]
+modulate = Color(1.2589494, 1.2589494, 1.2589494, 1)
+offset_left = 369.0
+offset_top = 339.0
+offset_right = 477.0
+offset_bottom = 447.0
+scale = Vector2(1.2, 1.2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+icon = ExtResource("5_ibs2t")
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="VolumeBar" to="." method="_on_volume_bar_value_changed"]
 [connection signal="button_down" from="VolumeReset" to="." method="_on_volume_reset_button_down"]
+[connection signal="button_up" from="VolumeReset" to="." method="_on_volume_reset_button_up"]
+[connection signal="button_down" from="Mobile Control Toggle" to="." method="_on_mobile_control_toggle_button_down"]
+[connection signal="button_up" from="Mobile Control Toggle" to="." method="_on_mobile_control_toggle_button_up"]

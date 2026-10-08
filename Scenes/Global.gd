@@ -9,11 +9,12 @@ var best_time = 999.99
 var time = 0
 var volume = 1.6
 var paused = false
-
+var on_mobile = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		on_mobile = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if paused == true:

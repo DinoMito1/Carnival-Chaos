@@ -12,7 +12,7 @@ func _ready() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($CollectIcon, "modulate:a", 0, 2)
 	
-	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+	if Global.on_mobile == true:
 		$MobileArrowControl.show()
 	else:
 		$MobileArrowControl.hide()
