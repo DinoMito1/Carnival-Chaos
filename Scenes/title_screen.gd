@@ -39,6 +39,7 @@ func _on_start_pressed() -> void:
 	tween.tween_property($"fade to black thing", "modulate:a", 1, .35)
 	await get_tree().create_timer(.45).timeout
 	
+	Global.minigames_done = 0
 	Global.timer.start()
 	get_tree().change_scene_to_file("res://Scenes/level_scene.tscn")
 

@@ -207,6 +207,7 @@ func _on_yes_button_button_down() -> void:
 
 func _on_no_button_button_down() -> void:
 	#resets paint
-	canvasImage = Image.load_from_file("res://Sprites/PlayerHeadPaint.png")
+	canvasImage = load("res://Sprites/PlayerHeadPaint.png").get_image()
 	paintTexture = ImageTexture.create_from_image(canvasImage)
+
 	$PlayerHeadPaint.texture = paintTexture
